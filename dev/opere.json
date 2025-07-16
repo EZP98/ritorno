@@ -1,0 +1,64 @@
+{
+  "opere": [
+    {
+      "id": 1,
+      "filename": "Eugenio.png",
+      "titolo": "Eugenio",
+      "descrizione": "Il volto di mio padre, radice e memoria del mio viaggio di ritorno"
+    },
+    {
+      "id": 2,
+      "filename": "Ezio.png",
+      "titolo": "Ezio",
+      "descrizione": "L'amico di sempre, compagno di percorsi paralleli"
+    },
+    {
+      "id": 3,
+      "filename": "Frida.png",
+      "titolo": "Frida",
+      "descrizione": "Forza e fragilità, icona di resistenza femminile"
+    },
+    {
+      "id": 4,
+      "filename": "Lorenzoni.png",
+      "titolo": "Claudio Lorenzoni",
+      "descrizione": "Il curatore, colui che ha creduto nel mio ritorno"
+    },
+    {
+      "id": 5,
+      "filename": "Marina.png",
+      "titolo": "Marina",
+      "descrizione": "Sguardo di mare, profondità d'anima"
+    },
+    {
+      "id": 6,
+      "filename": "Milone.png",
+      "titolo": "Milone",
+      "descrizione": "La saggezza del tempo, lo sguardo che racconta"
+    },
+    {
+      "id": 7,
+      "filename": "Varasano.png",
+      "titolo": "Leonardo Varasano",
+      "descrizione": "L'amico scrittore, testimone del percorso artistico"
+    },
+    {
+      "id": 8,
+      "filename": "Venanti.png",
+      "titolo": "Venanti",
+      "descrizione": "Il sorriso che illumina, la gioia di vivere"
+    },
+    {
+      "id": 9,
+      "filename": "placeholder.png",
+      "titolo": "Nome 9",
+      "descrizione": "Descrizione dell'opera 9 - Da completare"
+    },
+    {
+      "id": 10,
+      "filename": "placeholder.png",
+      "titolo": "Nome 10",
+      "descrizione": "Descrizione dell'opera 10 - Da completare"
+    }
+  ]
+}

@@ -164,46 +164,28 @@
         
         <!-- Works Section -->
         <div id="works" class="content-section works-section">
-            <div class="works-grid">
-                <div class="work-item" onclick="openLightbox('images/Eugenio.png', 'Eugenio')">
-                    <img src="images/Eugenio.png" alt="Eugenio" class="work-image">
-                </div>
-                
-                <div class="work-item" onclick="openLightbox('images/Ezio.png', 'Ezio')">
-                    <img src="images/Ezio.png" alt="Ezio" class="work-image">
-                </div>
-                
-                <div class="work-item" onclick="openLightbox('images/Frida.png', 'Frida')">
-                    <img src="images/Frida.png" alt="Frida" class="work-image">
-                </div>
-                
-                <div class="work-item" onclick="openLightbox('images/Lorenzoni.png', 'Lorenzoni')">
-                    <img src="images/Lorenzoni.png" alt="Lorenzoni" class="work-image">
-                </div>
-                
-                <div class="work-item" onclick="openLightbox('images/Marina.png', 'Marina')">
-                    <img src="images/Marina.png" alt="Marina" class="work-image">
-                </div>
-                
-                <div class="work-item" onclick="openLightbox('images/Milone.png', 'Milone')">
-                    <img src="images/Milone.png" alt="Milone" class="work-image">
-                </div>
-                
-                <div class="work-item" onclick="openLightbox('images/Varasano.png', 'Varasano')">
-                    <img src="images/Varasano.png" alt="Varasano" class="work-image">
-                </div>
-                
-                <div class="work-item" onclick="openLightbox('images/Venanti.png', 'Venanti')">
-                    <img src="images/Venanti.png" alt="Venanti" class="work-image">
-                </div>
+            <div class="works-info">
+                <p class="works-counter"><span id="loadedCount">0</span> di <span id="totalCount">49</span> opere</p>
+            </div>
+            <div class="works-grid" id="worksGrid">
+                <!-- Le opere verranno caricate dinamicamente -->
+            </div>
+            <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+                <button class="load-more-btn" onclick="loadMoreWorks()">Carica altre opere</button>
             </div>
         </div>
     </div>
 
     <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
-        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
-        <img src="" alt="" class="lightbox-image" id="lightboxImage">
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+        <div class="lightbox-content">
+            <img src="" alt="" class="lightbox-image" id="lightboxImage">
+            <div class="lightbox-info">
+                <h3 class="lightbox-title" id="lightboxTitle"></h3>
+                <p class="lightbox-description" id="lightboxDescription"></p>
+            </div>
+        </div>
     </div>
 
     <!-- Back to top button -->
@@ -236,6 +218,11 @@
                 updateScrollDots();
             } else {
                 scrollNav.classList.remove('active');
+            }
+            
+            // Carica le opere quando si clicca sul tab
+            if (sectionId === 'works' && allWorks.length === 0) {
+                loadWorksData();
             }
         }
         
@@ -325,17 +312,93 @@
             toggleBackToTop();
         });
         
+        // Variabili per gestire le opere
+        let allWorks = [];
+        let currentIndex = 0;
+        const worksPerLoad = 12;
+        
+        // Carica i dati delle opere
+        async function loadWorksData() {
+            try {
+                const response = await fetch('opere.json');
+                const data = await response.json();
+                allWorks = data.opere;
+                document.getElementById('totalCount').textContent = allWorks.length;
+                loadMoreWorks();
+            } catch (error) {
+                console.error('Errore nel caricamento delle opere:', error);
+                // Fallback con le 8 opere esistenti
+                allWorks = [
+                    { id: 1, filename: "Eugenio.png", titolo: "Eugenio", descrizione: "Il volto di mio padre" },
+                    { id: 2, filename: "Ezio.png", titolo: "Ezio", descrizione: "L'amico di sempre" },
+                    { id: 3, filename: "Frida.png", titolo: "Frida", descrizione: "Forza e fragilità" },
+                    { id: 4, filename: "Lorenzoni.png", titolo: "Claudio Lorenzoni", descrizione: "Il curatore" },
+                    { id: 5, filename: "Marina.png", titolo: "Marina", descrizione: "Sguardo di mare" },
+                    { id: 6, filename: "Milone.png", titolo: "Milone", descrizione: "La saggezza del tempo" },
+                    { id: 7, filename: "Varasano.png", titolo: "Leonardo Varasano", descrizione: "L'amico scrittore" },
+                    { id: 8, filename: "Venanti.png", titolo: "Venanti", descrizione: "Il sorriso che illumina" }
+                ];
+                loadMoreWorks();
+            }
+        }
+        
+        // Carica più opere
+        function loadMoreWorks() {
+            const grid = document.getElementById('worksGrid');
+            const endIndex = Math.min(currentIndex + worksPerLoad, allWorks.length);
+            
+            for (let i = currentIndex; i < endIndex; i++) {
+                const work = allWorks[i];
+                const workItem = document.createElement('div');
+                workItem.className = 'work-item';
+                workItem.onclick = () => openLightbox(work);
+                
+                const img = document.createElement('img');
+                img.src = `images/${work.filename}`;
+                img.alt = work.titolo;
+                img.className = 'work-image';
+                img.loading = 'lazy';
+                
+                workItem.appendChild(img);
+                grid.appendChild(workItem);
+                
+                // Anima l'entrata
+                setTimeout(() => {
+                    workItem.style.opacity = '1';
+                    workItem.style.transform = 'translateY(0)';
+                }, i * 50);
+            }
+            
+            currentIndex = endIndex;
+            document.getElementById('loadedCount').textContent = currentIndex;
+            
+            // Mostra/nascondi il pulsante "Carica altro"
+            const loadMoreContainer = document.getElementById('loadMoreContainer');
+            if (currentIndex < allWorks.length) {
+                loadMoreContainer.style.display = 'block';
+            } else {
+                loadMoreContainer.style.display = 'none';
+            }
+        }
+        
         // Lightbox functions
-        function openLightbox(imageSrc, imageAlt) {
+        function openLightbox(work) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImage = document.getElementById('lightboxImage');
-            lightboxImage.src = imageSrc;
-            lightboxImage.alt = imageAlt;
+            const lightboxTitle = document.getElementById('lightboxTitle');
+            const lightboxDescription = document.getElementById('lightboxDescription');
+            
+            lightboxImage.src = `images/${work.filename}`;
+            lightboxImage.alt = work.titolo;
+            lightboxTitle.textContent = work.titolo;
+            lightboxDescription.textContent = work.descrizione;
+            
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
         
-        function closeLightbox() {
+        function closeLightbox(event) {
+            if (event) event.stopPropagation();
             const lightbox = document.getElementById('lightbox');
             lightbox.classList.remove('active');
             document.body.style.overflow = '';
