@@ -107,15 +107,11 @@
     <div class="modal" id="videoModal" onclick="closeVideo(event)">
         <div class="modal-content" onclick="event.stopPropagation()">
             <span class="close" onclick="closeVideo()">&times;</span>
-            <iframe 
-                width="100%" 
-                height="100%" 
-                src="" 
-                title="RITORNO Video" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                allowfullscreen>
-            </iframe>
+            <video id="modalVideo" controls autoplay>
+                <source src="Ritorno.mov" type="video/quicktime">
+                <source src="Ritorno.mp4" type="video/mp4">
+                Il tuo browser non supporta il tag video.
+            </video>
         </div>
     </div>
 
@@ -254,21 +250,23 @@
         // Video modal
         function openVideo() {
             const modal = document.getElementById('videoModal');
-            const iframe = modal.querySelector('iframe');
-            // Reset the video to start from beginning
-            iframe.src = 'https://www.youtube.com/embed/7yvyHTVvfEs?autoplay=1&controls=0&disablekb=1&modestbranding=1&rel=0&showinfo=0&mute=1';
+            const video = document.getElementById('modalVideo');
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+            // Reset and play video
+            video.currentTime = 0;
+            video.play();
         }
 
         function closeVideo(event) {
             if (!event || event.target.id === 'videoModal' || event.target.className === 'close') {
                 const modal = document.getElementById('videoModal');
+                const video = document.getElementById('modalVideo');
                 modal.classList.remove('active');
                 document.body.style.overflow = '';
-                // Stop video by removing src
-                const iframe = modal.querySelector('iframe');
-                iframe.src = '';
+                // Pause and reset video
+                video.pause();
+                video.currentTime = 0;
             }
         }
 
