@@ -12,7 +12,11 @@ html {
 
 body {
     font-family: 'Lato', sans-serif;
-    background: #131313;
+    background-image: url('images/sky.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
     color: #ffffff;
     overflow-x: hidden;
     line-height: 1.6;
@@ -138,10 +142,6 @@ body {
     justify-content: center;
     position: relative;
     padding: 4rem 2rem;
-    background-image: url('images/sky.png');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .hero-content {
@@ -235,6 +235,14 @@ body {
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.critica {
+    background: #131313;
+    margin-top: 5rem;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .opere.visible,
@@ -607,6 +615,10 @@ body {
 }
 
 @media (max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
+    
     .navbar {
         padding: 1rem;
     }
