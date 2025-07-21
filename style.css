@@ -1,0 +1,771 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Palanquin:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    background: #131313;
+    color: #ffffff;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* Navigation */
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: transparent;
+    z-index: 1000;
+    padding: 1rem 2rem;
+    transition: all 0.3s ease;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.nav-links {
+    display: flex;
+    gap: 3rem;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    transition: color 0.3s ease;
+    font-size: 14px;
+}
+
+.nav-link:hover {
+    color: #F64128;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+    flex-direction: column;
+    gap: 4px;
+    padding: 5px;
+    z-index: 1001;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background: #ffffff;
+    transition: all 0.3s ease;
+}
+
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(19, 19, 19, 0.98);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 999;
+}
+
+.mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-link {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: 500;
+    letter-spacing: 0.1rem;
+    transition: all 0.3s ease;
+}
+
+.mobile-link:hover {
+    color: #F64128;
+    transform: scale(1.05);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('images/sky.png') center center / cover no-repeat fixed;
+    position: relative;
+    padding: 4rem 2rem;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+/* Fade in animation for hero elements */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.museo-title {
+    font-family: 'Palanquin', sans-serif;
+    font-size: 18px;
+    color: #ffffff;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.3s forwards;
+}
+
+.ritorno-logo {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    margin: 0 auto 2rem;
+    display: block;
+    filter: drop-shadow(0 10px 30px rgba(246, 65, 40, 0.3));
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.6s forwards;
+}
+
+.subtitle {
+    font-family: 'Palanquin', sans-serif;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 0.9s forwards;
+}
+
+.video-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: transparent;
+    border: 2px solid #F64128;
+    color: #F64128;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeInUp 1s ease-out 1.2s forwards;
+}
+
+.video-btn:hover {
+    background: #F64128;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.video-btn svg {
+    width: 24px;
+    height: 24px;
+}
+
+/* Sections */
+.opere,
+.critica {
+    padding: 5rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.opere.visible,
+.critica.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-title {
+    font-family: 'Palanquin', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom: 3rem;
+    letter-spacing: 0.2rem;
+}
+
+/* Opere Grid using Flexbox */
+.opere-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.opera-item {
+    position: relative;
+    width: calc(50% - 0.5rem); /* Two items per row with gap */
+    padding-bottom: calc(50% - 0.5rem); /* Square aspect ratio */
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    animation: leafSway 4s ease-in-out infinite;
+}
+
+/* Every third item takes full width but maintains same size */
+.opera-item:nth-child(3n+3) {
+    width: calc(50% - 0.5rem); /* Same width as others */
+    margin-left: 25%; /* Center it (25% + 50% + 25% = 100%) */
+}
+
+.opera-item:hover {
+    transform: scale(1.05);
+}
+
+.opera-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    background: transparent;
+}
+
+/* Subtle leaf animation */
+@keyframes leafSway {
+    0%, 100% { transform: rotate(0deg) translateY(0px); }
+    25% { transform: rotate(0.5deg) translateY(-1px); }
+    75% { transform: rotate(-0.5deg) translateY(1px); }
+}
+
+/* Stagger animations for opera items */
+.opera-item:nth-child(odd) {
+    animation-duration: 4.5s;
+    animation-delay: 0.2s;
+}
+
+.opera-item:nth-child(even) {
+    animation-duration: 5s;
+    animation-delay: 0.8s;
+}
+
+.card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger animations for cards */
+.card.visible:nth-child(1) { transition-delay: 0.1s; }
+.card.visible:nth-child(2) { transition-delay: 0.2s; }
+.card.visible:nth-child(3) { transition-delay: 0.3s; }
+
+.load-more {
+    display: block;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+    background: transparent;
+    border: 2px solid #F64128;
+    color: #F64128;
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.load-more:hover {
+    background: #F64128;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+/* Cards Container */
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.card {
+    display: flex;
+    background: #131313;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    height: 250px; /* Fixed height for all cards */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.card:hover {
+    border-color: rgba(246, 65, 40, 0.3);
+}
+
+.card-content {
+    flex: 1;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-title {
+    font-family: 'Palanquin', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 0.3rem;
+}
+
+.card-text {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    position: relative;
+}
+
+.card-text::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    background: linear-gradient(to bottom, transparent, #131313);
+    pointer-events: none;
+}
+
+.card-author {
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.card-image {
+    width: 250px;
+    height: 100%;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-image img {
+    /* Transform removed */
+}
+
+/* Modals */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 2000;
+}
+
+.modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: #131313;
+    border-radius: 16px;
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    overflow: auto;
+}
+
+.modal-content video {
+    width: 100%;
+    max-width: 1200px;
+    height: auto;
+    display: block;
+    border-radius: 16px;
+}
+
+.text-modal-content {
+    padding: 3rem;
+    max-width: 800px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.text-modal-content h2 {
+    font-family: 'Palanquin', sans-serif;
+    font-size: 2rem;
+    color: #F64128;
+    margin-bottom: 0.5rem;
+}
+
+.text-modal-content #modalAuthor {
+    color: rgba(255, 255, 255, 0.5);
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.text-modal-content #modalText {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+}
+
+.text-modal-content #modalText p {
+    margin-bottom: 1.5rem;
+}
+
+.close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: #ffffff;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.close:hover {
+    color: #F64128;
+    transform: scale(1.1);
+}
+
+/* Lightbox */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 2000;
+    padding: 2rem;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+    border-radius: 8px;
+    animation: fadeInScale 0.4s ease-out;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Back to Top */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 50px;
+    height: 50px;
+    background: #F64128;
+    color: #ffffff;
+    border: none;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 100;
+}
+
+.back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.back-to-top:hover {
+    background: #d63515;
+    transform: translateY(-3px);
+}
+
+/* Responsive */
+/* Stronger leaf animation for mobile */
+@keyframes leafSwayMobile {
+    0%, 100% { transform: rotate(0deg) translateY(0px); }
+    25% { transform: rotate(1.5deg) translateY(-3px); }
+    75% { transform: rotate(-1.5deg) translateY(3px); }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 1rem;
+    }
+    
+    .nav-container {
+        position: relative;
+        justify-content: flex-start;
+    }
+    
+    .nav-links {
+        display: none;
+    }
+    
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .hero {
+        padding: 4rem 1rem;
+    }
+    
+    .museo-title {
+        font-size: 16px;
+    }
+    
+    .ritorno-logo {
+        max-width: 80%;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+    
+    .video-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .opere,
+    .critica {
+        padding: 3rem 1rem;
+    }
+    
+    .opere-grid {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .opera-item {
+        width: 100%;
+        padding-bottom: 100%; /* Keep square aspect ratio */
+        animation: leafSwayMobile 4s ease-in-out infinite;
+    }
+    
+    /* On mobile, all items same width, no special margin */
+    .opera-item:nth-child(3n+3) {
+        width: 100%;
+        margin-left: 0;
+    }
+    
+    .card {
+        flex-direction: column;
+        height: auto;
+    }
+    
+    .card-content {
+        padding: 2rem;
+        order: 2;
+    }
+    
+    .card-image {
+        width: 100%;
+        height: 300px;
+        order: 1;
+        overflow: hidden;
+    }
+    
+    .card-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+        transform: none;
+    }
+    
+    .card-title {
+        font-size: 1.25rem;
+    }
+    
+    .modal-content {
+        margin: 1rem;
+        max-width: calc(100% - 2rem);
+    }
+    
+    .text-modal-content {
+        padding: 2rem;
+    }
+    
+    .text-modal-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .back-to-top {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+        bottom: 1rem;
+        right: 1rem;
+    }
+    
+    .lightbox {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 0.8rem 1rem;
+    }
+    
+    .hero {
+        padding: 3rem 1rem;
+    }
+    
+    .museo-title {
+        font-size: 14px;
+    }
+    
+    .ritorno-logo {
+        max-width: 90%;
+    }
+    
+    .subtitle {
+        font-size: 0.9rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .opere,
+    .critica {
+        padding: 2rem 1rem;
+    }
+    
+    .card-content {
+        padding: 1.5rem;
+    }
+    
+    .card-title {
+        font-size: 1.1rem;
+    }
+    
+    .card-text {
+        font-size: 0.9rem;
+    }
+    
+    .text-modal-content {
+        padding: 1.5rem;
+    }
+    
+    .text-modal-content h2 {
+        font-size: 1.3rem;
+    }
+}

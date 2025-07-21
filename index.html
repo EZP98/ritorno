@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>RITORNO - Adele Lo Feudo ALF | Museo a Cielo Aperto di Camo</title>
+    <meta name="description" content="Mostra personale di Adele Lo Feudo - 49 foglie dipinte in acrilico">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%23F64128'/></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-links">
+                <a href="#hero" class="nav-link">RITORNO</a>
+                <a href="#opere" class="nav-link">OPERE</a>
+                <a href="#critica" class="nav-link">CRITICA</a>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#hero" class="mobile-link" onclick="closeMenu()">RITORNO</a>
+        <a href="#opere" class="mobile-link" onclick="closeMenu()">OPERE</a>
+        <a href="#critica" class="mobile-link" onclick="closeMenu()">CRITICA</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <div class="museo-title">Museo a Cielo Aperto di Camo</div>
+            <img src="ritorno.svg" alt="RITORNO" class="ritorno-logo">
+            <div class="subtitle">
+                PERSONALE DI ADELE LO FEUDO<br>
+                A CURA DI CLAUDIO LORENZONI
+            </div>
+            <button class="video-btn" onclick="openVideo()">
+                <span>GUARDA IL VIDEO</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                    <path d="M8 5v14l11-7z" fill="currentColor"/>
+                </svg>
+            </button>
+        </div>
+    </section>
+
+    <!-- Opere Section -->
+    <section id="opere" class="opere">
+        <h2 class="section-title">OPERE</h2>
+        <div class="opere-grid" id="opereGrid">
+            <!-- Opere caricate dinamicamente -->
+        </div>
+        <button class="load-more" id="loadMore" onclick="loadMore()">Carica altre opere</button>
+    </section>
+
+    <!-- Critica Section -->
+    <section id="critica" class="critica">
+        <h2 class="section-title">CRITICA</h2>
+        <div class="cards-container">
+            <!-- Card 1 -->
+            <div class="card" onclick="openText(0)">
+                <div class="card-content">
+                    <h3 class="card-title">ADELE, RITORNA.</h3>
+                    <p class="card-author">di Claudio Lorenzoni</p>
+                    <p class="card-text">Il progetto Ritorno si presenta come un viaggio intimo e circolare, partendo da Parantoro per esplorare l'identità attraverso 49 foglie dipinte.</p>
+                </div>
+                <div class="card-image">
+                    <img src="images/foglie/lorenzoni.png" alt="Claudio Lorenzoni">
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card" onclick="openText(1)">
+                <div class="card-content">
+                    <h3 class="card-title">LE FOGLIE DI ALF</h3>
+                    <p class="card-author">di Leonardo Varasano</p>
+                    <p class="card-text">Alla vigilia della prima grande personale di Adele Lo Feudo al Museo a Cielo Aperto di Camo, le foglie diventano simbolo di una vita fragile ma esplosiva.</p>
+                </div>
+                <div class="card-image">
+                    <img src="images/foglie/varasano.png" alt="Leonardo Varasano">
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card" onclick="openText(2)">
+                <div class="card-content">
+                    <h3 class="card-title">R I T O R N O</h3>
+                    <p class="card-author">di Adele Lo Feudo</p>
+                    <p class="card-text">Le 49 foglie nascondono un messaggio di memoria, amore per la vita, l'altro e l'arte, invitando il visitatore a far rivivere il proprio passato.</p>
+                </div>
+                <div class="card-image">
+                    <img src="images/foglie/adele.png" alt="Adele Lo Feudo">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+    <!-- Video Modal -->
+    <div class="modal" id="videoModal" onclick="closeVideo(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeVideo()">&times;</span>
+            <video controls autoplay>
+                <source src="Ritorno.mp4" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <!-- Text Modal -->
+    <div class="modal" id="textModal" onclick="closeText(event)">
+        <div class="modal-content text-modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeText()">&times;</span>
+            <h2 id="modalTitle"></h2>
+            <p id="modalAuthor"></p>
+            <div id="modalText"></div>
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+        <span class="close" onclick="closeLightbox()">&times;</span>
+        <img id="lightboxImg" src="" alt="">
+    </div>
+
+    <!-- Back to Top -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <script>
+        // Navigation
+        function toggleMenu() {
+            document.getElementById('mobileMenu').classList.toggle('active');
+            document.querySelector('.menu-toggle').classList.toggle('active');
+        }
+
+        function closeMenu() {
+            document.getElementById('mobileMenu').classList.remove('active');
+            document.querySelector('.menu-toggle').classList.remove('active');
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Opere data
+        let allWorks = [];
+        let currentIndex = 0;
+        const worksPerLoad = 12;
+
+        // Load opere directly from foglie folder
+        async function loadOpere() {
+            // Lista di tutte le foglie nella cartella foglie
+            const foglieList = [
+                "adele.png",
+                "eugenio.png", 
+                "ezio.png",
+                "frida.png",
+                "lorenzoni.png",
+                "marina.png",
+                "milone.png",
+                "varasano.png",
+                "venanti.png"
+            ];
+            
+            // Crea array di opere dalle foglie
+            allWorks = foglieList.map((filename, index) => ({
+                id: index + 1,
+                filename: filename,
+                titolo: filename.replace('.png', '')
+            }));
+            
+            console.log('Loaded works:', allWorks);
+            console.log('Current index before loadMore:', currentIndex);
+            
+            loadMore();
+        }
+
+        // Load more opere
+        function loadMore() {
+            const grid = document.getElementById('opereGrid');
+            const endIndex = Math.min(currentIndex + worksPerLoad, allWorks.length);
+            
+            console.log('LoadMore - from:', currentIndex, 'to:', endIndex, 'total:', allWorks.length);
+            
+            for (let i = currentIndex; i < endIndex; i++) {
+                const work = allWorks[i];
+                const item = document.createElement('div');
+                item.className = 'opera-item';
+                // Don't hide initially - let CSS handle visibility
+                item.onclick = () => openLightbox(work.filename, work.titolo);
+                
+                const img = document.createElement('img');
+                img.src = `images/foglie/${work.filename}`;
+                img.alt = work.titolo;
+                img.loading = 'lazy';
+                
+                // Image loaded successfully - ensure it's visible
+                img.onload = function() {
+                    console.log('Image loaded:', work.filename);
+                };
+                
+                // Remove item if image fails to load
+                img.onerror = function() {
+                    console.error('Failed to load image:', work.filename);
+                    item.remove();
+                };
+                
+                item.appendChild(img);
+                grid.appendChild(item);
+            }
+            
+            currentIndex = endIndex;
+            
+            // Hide load more button if all loaded
+            if (currentIndex >= allWorks.length) {
+                document.getElementById('loadMore').style.display = 'none';
+            }
+        }
+
+        // Lightbox
+        function openLightbox(filename, title) {
+            const lightbox = document.getElementById('lightbox');
+            const img = document.getElementById('lightboxImg');
+            img.src = `images/foglie/${filename}`;
+            img.alt = title;
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Video modal
+        function openVideo() {
+            document.getElementById('videoModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeVideo(event) {
+            if (!event || event.target.id === 'videoModal' || event.target.className === 'close') {
+                const modal = document.getElementById('videoModal');
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                const video = modal.querySelector('video');
+                video.pause();
+            }
+        }
+
+        // Text modal
+        const texts = [
+            {
+                title: "ADELE, RITORNA.",
+                author: "di Claudio Lorenzoni",
+                content: `<p>Ho tra le mani le ultime creazioni di Adele Lo Feudo ed ho appena riletto la e-mail di presentazione che mi ha inviato. Fatemi prendere fiato.</p>
+                <p>Si narra che nella vita quando le persone o i luoghi sono veramente significativi, si ripresenta sempre la possibilità di ritrovarli. Perché il vento fa il suo giro e ogni cosa prima o poi ritorna. E ogni volta che questo accade si percepisce una sorta di nostos, di ritorno, che trasmette quel senso di circolarità del viaggio dell'esistenza il cui fine ultimo è arrivare a noi stessi.</p>
+                <p>E così è stato. Dopo quasi 10 anni dalla sua prima apparizione in quel di Camo, Adele, con il suo progetto "R I T O R N O", torna a casa, torna in quel luogo, torna tra quelle persone. E lo fa con un nuovo progetto, un nuovo lavoro composto da 49 foglie realizzate in sedici mesi su tela e dipinte in tecnica acrilica.</p>
+                <p>Le foglie, mi scrive, "nascondono un messaggio in cui chiunque potrebbe rivedersi. Un messaggio di memoria, amore per la vita, l'altro e l'arte".</p>
+                <p>Con questo progetto Adele ha intrapreso un viaggio molto intimo, partendo da un luogo ben definito, Parantoro, terra di suo padre e dei nonni, per poi dirigersi verso tutti gli altri posti che in qualche modo l'hanno trattenuta.</p>
+                <p>Ogni foglia è un volto di una persona che in questo lungo viaggio ha "incontrato". Ogni persona un paesaggio personale. Ogni volto è un viaggio. Tutte le foglie viaggi che si intrecciano creando una memoria condivisa impregnata di sogni, sacrifici, lacrime e sorrisi.</p>
+                <p>Ora mi immagino l'albero da cui sono state raccolte le foglie. È un albero collettivo, con un tronco multivitale ed una corteccia umana, culturale, artistica.</p>
+                <p>Guardando i suoi lavori, e leggendo la sua presentazione, mi vien spontaneo toccare il tema dei "nostoi", ovvero dei "ritorni" in greco antico. Anche perché i "nostoi" non sono solamente un atto fisico narrato nelle vicende eroiche (Ulisse l'esempio supremo), ma anche, e soprattutto, una riflessione sull'identità, la memoria, la riconciliazione con il passato e la ricerca dei luoghi di provenienza.</p>
+                <p>Il viaggio che ha intrapreso Adele è sì un ritorno: ma il suo obiettivo non è condurre se stessa ad una meta, ma ricondursi in maniera circolare al suo originario punto di partenza: a casa, ma non una casa fisica. Una casa interiore, la conoscenza di sé.</p>
+                <p>La circolarità del percorso connota il viaggio non come fine a se stesso, ma come funzionale a un'acquisizione di esperienza e di conoscenza superiori: un progresso rilevabile e misurabile soltanto dal confronto con il punto di partenza, cioè facendo ritorno al luogo nel quale Adele può finalmente rispecchiarsi e (ri)conoscere la nuova identità.</p>
+                <p>Il nostos, in quest'ottica, implica necessariamente anche la nostalgeia, la nostalgia, il "desiderio sofferto di tornare" a casa, per ritrovare le proprie cose, le proprie radici, ma soprattutto se stessi.</p>
+                <p>È un continuo muoversi il suo, in avanti per il desiderio di tornare indietro. Indietro verso l'archè, l'origine del tutto.</p>
+                <p>Il viaggio di ritorno è anche quello nel tempo della memoria, nei ricordi che rendono vivo e presente il passato. Per Cesare Pavese "le cose si scoprono attraverso i ricordi che se ne hanno. Ricordare una cosa significa vederla, ora soltanto, per la prima volta".</p>
+                <p>Lewis Carroll in Alice attraverso lo specchio si spinge ben oltre facendo dire alla Regina che "è una memoria ben misera quella che ricorda solo ciò che è già avvenuto".</p>
+                <p>Così come sono dei nostoi quegli episodi delle nostre vite che magari a distanza di anni si rivelano essere il perpetuo ritorno di quanto abbiamo già vissuto: uguali ma diversi. Perché se il copione sembra lo stesso, ora a essere cambiati, a essere diversi, siamo noi.</p>
+                <p>Spesso questi ritorni si ripresentano sul nostro cammino come prove da superare, nodi del passato ancora da sciogliere, conflitti rimasti troppo a lungo irrisolti. Se non era buona la prima, la vita ci offre una seconda opportunità. Adele con questo progetto, parafrasando José Saramago, nell'infinita circolarità del suo percorso, ogni meta che ha raggiunto non è che una tappa, l'inizio di un nuovo viaggio. Perché bisogna ricominciare il viaggio. Sempre.</p>`
+            },
+            {
+                title: "LE FOGLIE DI ALF, UN'ESPLOSIONE DI VITA E DI RICORDI",
+                author: "di Leonardo Varasano",
+                content: `<p>La foglia è al tempo stesso un simbolo di speranza, di vita e di fragilità. Si pensi, ad esempio, ad una foglia nascente, gemma di una nuova, rigogliosa vita, abito elegante per un piccolo fiore o per un albero maestoso e imponente. Si pensi, solo per fare un altro esempio, ad una foglia sferzata da un vento autunnale, strappata da un ramo e alla mercé dell'aria.</p>
+                <p>Proprio le foglie - con la loro esplosione di vita (inevitabilmete fragile) - sono state scelte da ALF, Adele Lo Feudo, per imprimere una nuova declinazione di un'arte delicata, profonda e sensibile.</p>
+                <p>Le foglie, con la loro danza al suono evocativo del vento, e la luce, che filtra intervallando un verde intenso: questo lo scenario ispiratore che ha mosso ALF ad un'introspezione fruttuosa, per sé e per noi osservatori. Di lì l'idea di affidare alle foglie i volti - e dunque i ricordi - di donne e uomini importanti per Adele: ricordi personalissimi, che restituiscono il tepore buono della famiglia (a partire dall'amato papà) e dell'amicizia (nella cui schiera sono felice di figurare); ricordi che appartengono all'umanità e alla sua Storia (da San Pio a Papa Francesco, solo per citare due casi).</p>
+                <p>Tutte insieme, le foglie che immortalano volti e ricordi, restituiscono la vita e la passione per l'arte di Adele. Ne emerge un concerto di gratitudine - per chi l'ha accompagnata nel suo cammino umano ed artistico -, di sacrificio - per la strada percorsa - e di bellezza. Un concerto pittorico, magistralmente realizzato, che ALF imprime sulle foglie, per se e per noi.</p>`
+            },
+            {
+                title: "R I T O R N O",
+                author: "di Adele Lo Feudo",
+                content: `<p>R I T O R N O dopo nove anni, con grande gioia, a Camo, presso il Museo a Cielo Aperto, che già mi accolse nel 2016 con la personale di pittura Presenze/Assenze:Io sono!</p>
+                <p>Il merito era ed è ancora di Claudio Lorenzoni, Direttore artistico, di rara umanità e sensibilità, mosso da un vero e disinteressato amore per l'Arte che parla ai cuori.</p>
+                <p>La mia ultima fatica artistica, "R I T O R N O", è composta da 49 foglie realizzate in sedici mesi su tela e dipinte in tecnica acrilica.</p>
+                <p>Le foglie nascondono un messaggio in cui chiunque potrebbe rivedersi.</p>
+                <p>Un messaggio di memoria, amore per la vita, l'altro e l'arte.</p>
+                <p>Spero che il visitatore possa far rivivere nella sua memoria un pezzetto di quel suo passato che magari ha dimenticato e che gli sta particolarmente a cuore.</p>`
+            }
+        ];
+
+        function openText(index) {
+            const text = texts[index];
+            document.getElementById('modalTitle').textContent = text.title;
+            document.getElementById('modalAuthor').textContent = text.author;
+            document.getElementById('modalText').innerHTML = text.content;
+            document.getElementById('textModal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeText(event) {
+            if (!event || event.target.id === 'textModal' || event.target.className === 'close') {
+                document.getElementById('textModal').classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // Back to top
+        window.addEventListener('scroll', () => {
+            const backToTop = document.getElementById('backToTop');
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // ESC key close modals
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+                closeVideo();
+                closeText();
+            }
+        });
+
+        // Intersection Observer for scroll animations
+        function setupScrollAnimations() {
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        
+                        // If it's the critica section, also animate its cards
+                        if (entry.target.classList.contains('critica')) {
+                            const cards = entry.target.querySelectorAll('.card');
+                            cards.forEach((card, index) => {
+                                setTimeout(() => {
+                                    card.classList.add('visible');
+                                }, index * 100);
+                            });
+                        }
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe sections
+            const sections = document.querySelectorAll('.opere, .critica');
+            sections.forEach(section => observer.observe(section));
+        }
+        
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            // Force complete reset on page load
+            allWorks = [];
+            currentIndex = 0;
+            const grid = document.getElementById('opereGrid');
+            if (grid) {
+                grid.innerHTML = '';
+            }
+            // Small delay to ensure DOM is ready
+            setTimeout(() => {
+                loadOpere();
+                setupScrollAnimations();
+            }, 100);
+        });
+    </script>
+</body>
+</html>
