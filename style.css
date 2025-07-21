@@ -627,6 +627,12 @@ body {
         background-attachment: scroll; /* Remove fixed on mobile */
         background-position: center center;
         background-size: cover;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: crisp-edges;
+        -webkit-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
     }
     
     .museo-title {
