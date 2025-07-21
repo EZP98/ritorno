@@ -15,7 +15,7 @@
 </head>
 <body>
     <!-- Background Audio -->
-    <audio id="backgroundAudio" loop>
+    <audio id="backgroundAudio" autoplay loop muted>
         <source src="audio.mp3" type="audio/mpeg">
     </audio>
 
@@ -360,14 +360,68 @@
         function playBackgroundAudio() {
             const audio = document.getElementById('backgroundAudio');
             audio.volume = 0.3; // Set volume to 30%
-            audio.play().catch(e => {
-                // Auto-play was prevented, try again on user interaction
-                console.log('Auto-play prevented, will try on user interaction');
-                document.addEventListener('click', function playOnClick() {
-                    audio.play();
-                    document.removeEventListener('click', playOnClick);
-                }, { once: true });
+            
+            // Remove muted after a short delay to allow autoplay
+            setTimeout(() => {
+                audio.muted = false;
+            }, 100);
+            
+            // Try to play
+            const playPromise = audio.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.catch(e => {
+                    console.log('Auto-play prevented, will try on user interaction');
+                    // Show a subtle hint to the user
+                    showAudioHint();
+                    
+                    // Try on any interaction
+                    ['click', 'touchstart', 'scroll'].forEach(event => {
+                        document.addEventListener(event, function startAudio() {
+                            audio.muted = false;
+                            audio.play();
+                            hideAudioHint();
+                            // Remove all listeners
+                            ['click', 'touchstart', 'scroll'].forEach(e => {
+                                document.removeEventListener(e, startAudio);
+                            });
+                        }, { once: true });
+                    });
+                });
+            }
+        }
+        
+        // Show audio hint
+        function showAudioHint() {
+            const hint = document.createElement('div');
+            hint.id = 'audioHint';
+            hint.innerHTML = '🔊 Clicca per attivare l\'audio';
+            hint.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                background: rgba(246, 65, 40, 0.9);
+                color: white;
+                padding: 10px 20px;
+                border-radius: 25px;
+                font-size: 14px;
+                z-index: 1000;
+                cursor: pointer;
+                animation: pulse 2s infinite;
+            `;
+            document.body.appendChild(hint);
+            
+            hint.addEventListener('click', () => {
+                const audio = document.getElementById('backgroundAudio');
+                audio.muted = false;
+                audio.play();
+                hideAudioHint();
             });
+        }
+        
+        function hideAudioHint() {
+            const hint = document.getElementById('audioHint');
+            if (hint) hint.remove();
         }
 
         // Initialize
