@@ -14,6 +14,11 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Background Audio -->
+    <audio id="backgroundAudio" loop>
+        <source src="audio.mp3" type="audio/mpeg">
+    </audio>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -384,6 +389,20 @@
             sections.forEach(section => observer.observe(section));
         }
         
+        // Auto-play background audio
+        function playBackgroundAudio() {
+            const audio = document.getElementById('backgroundAudio');
+            audio.volume = 0.3; // Set volume to 30%
+            audio.play().catch(e => {
+                // Auto-play was prevented, try again on user interaction
+                console.log('Auto-play prevented, will try on user interaction');
+                document.addEventListener('click', function playOnClick() {
+                    audio.play();
+                    document.removeEventListener('click', playOnClick);
+                }, { once: true });
+            });
+        }
+
         // Initialize
         document.addEventListener('DOMContentLoaded', () => {
             // Force complete reset on page load
@@ -397,6 +416,7 @@
             setTimeout(() => {
                 loadOpere();
                 setupScrollAnimations();
+                playBackgroundAudio();
             }, 100);
         });
     </script>
