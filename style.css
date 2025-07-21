@@ -463,10 +463,12 @@ body {
     overflow: auto;
 }
 
-.modal-content video {
+.modal-content video,
+.modal-content iframe {
     width: 100%;
     max-width: 1200px;
     height: auto;
+    min-height: 500px;
     display: block;
     border-radius: 16px;
 }
