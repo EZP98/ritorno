@@ -12,11 +12,7 @@ html {
 
 body {
     font-family: 'Lato', sans-serif;
-    background-image: url('images/sky.png');
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+    background: #131313;
     color: #ffffff;
     overflow-x: hidden;
     line-height: 1.6;
@@ -142,6 +138,11 @@ body {
     justify-content: center;
     position: relative;
     padding: 4rem 2rem;
+    background-image: url('images/sky.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 .hero-content {
@@ -230,19 +231,22 @@ body {
 .opere,
 .critica {
     padding: 5rem 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
     opacity: 0;
     transform: translateY(30px);
     transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    background: #131313;
+    position: relative;
+    z-index: 1;
+}
+
+.opere {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
 .critica {
-    background: #131313;
-    margin-top: 5rem;
-    width: 100%;
-    max-width: 100%;
-    box-sizing: border-box;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
 }
 
 .opere.visible,
@@ -615,10 +619,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    body {
-        background-attachment: scroll;
-    }
-    
     .navbar {
         padding: 1rem;
     }
@@ -638,6 +638,7 @@ body {
     
     .hero {
         padding: 4rem 1rem;
+        background-attachment: scroll;
     }
     
     .museo-title {
