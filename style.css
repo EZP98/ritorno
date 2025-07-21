@@ -626,7 +626,8 @@ body {
         padding: 4rem 1rem;
         background-attachment: scroll; /* Remove fixed on mobile */
         background-position: center center;
-        background-size: cover;
+        background-size: contain;
+        background-repeat: no-repeat;
         image-rendering: -webkit-optimize-contrast;
         image-rendering: crisp-edges;
         -webkit-transform: translate3d(0,0,0);
