@@ -223,6 +223,7 @@ body::before {
     transition: all 0.3s ease;
     opacity: 0;
     animation: fadeInUp 1s ease-out 1.2s forwards;
+    text-decoration: none;
 }
 
 .video-btn:hover {

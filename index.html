@@ -51,12 +51,12 @@
                 PERSONALE DI ADELE LO FEUDO<br>
                 A CURA DI CLAUDIO LORENZONI
             </div>
-            <button class="video-btn" onclick="openVideo()">
+            <a href="ritorno.mp4" class="video-btn">
                 <span>GUARDA IL VIDEO</span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path d="M8 5v14l11-7z" fill="currentColor"/>
                 </svg>
-            </button>
+            </a>
         </div>
     </section>
 
@@ -112,16 +112,6 @@
     </section>
 
     <!-- Modals -->
-    <!-- Video Modal -->
-    <div class="modal" id="videoModal" onclick="closeVideo(event)">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <span class="close" onclick="closeVideo()">&times;</span>
-            <video id="modalVideo" controls autoplay>
-                <source src="ritorno.mp4" type="video/mp4">
-                Il tuo browser non supporta il tag video.
-            </video>
-        </div>
-    </div>
 
     <!-- Text Modal -->
     <div class="modal" id="textModal" onclick="closeText(event)">
@@ -255,28 +245,6 @@
             document.body.style.overflow = '';
         }
 
-        // Video modal
-        function openVideo() {
-            const modal = document.getElementById('videoModal');
-            const video = document.getElementById('modalVideo');
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-            // Reset and play video
-            video.currentTime = 0;
-            video.play();
-        }
-
-        function closeVideo(event) {
-            if (!event || event.target.id === 'videoModal' || event.target.className === 'close') {
-                const modal = document.getElementById('videoModal');
-                const video = document.getElementById('modalVideo');
-                modal.classList.remove('active');
-                document.body.style.overflow = '';
-                // Pause and reset video
-                video.pause();
-                video.currentTime = 0;
-            }
-        }
 
         // Text modal
         const texts = [
@@ -354,7 +322,6 @@
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeLightbox();
-                closeVideo();
                 closeText();
             }
         });
