@@ -1,0 +1,35 @@
+/* Video Button Styles */
+.video-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 32px;
+    background: transparent;
+    border: 2px solid #F64128;
+    color: #F64128;
+    font-family: 'Palanquin', sans-serif;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.05rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 auto 3rem;
+}
+
+.video-button:hover {
+    background: #F64128;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(246, 65, 40, 0.4);
+}
+
+.play-icon {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s ease;
+}
+
+.video-button:hover .play-icon {
+    transform: scale(1.1);
+}

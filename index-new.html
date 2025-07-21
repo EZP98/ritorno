@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RITORNO - Adele Lo Feudo | Museo a Cielo Aperto di Camo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #131313;
+            color: #ffffff;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(19, 19, 19, 0.95);
+            z-index: 1000;
+            padding: 20px 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 2px;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #F64128;
+        }
+
+        /* Sections */
+        .section {
+            min-height: 100vh;
+            padding: 100px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: url('images/sky.png') center/cover;
+            text-align: center;
+        }
+
+        .museo {
+            font-size: 18px;
+            letter-spacing: 4px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .title {
+            font-size: 80px;
+            font-weight: 700;
+            letter-spacing: 15px;
+            color: #F64128;
+            margin-bottom: 30px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 40px;
+        }
+
+        .video-btn {
+            background: transparent;
+            border: 2px solid #F64128;
+            color: #F64128;
+            padding: 15px 40px;
+            font-size: 14px;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .video-btn:hover {
+            background: #F64128;
+            color: #fff;
+        }
+
+        /* Works Section */
+        .works {
+            background: #1a1a1a;
+        }
+
+        .section-title {
+            font-size: 48px;
+            color: #F64128;
+            text-align: center;
+            margin-bottom: 60px;
+            letter-spacing: 8px;
+        }
+
+        .works-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .work-item {
+            position: relative;
+            padding-bottom: 75%;
+            overflow: hidden;
+            background: #222;
+        }
+
+        .work-item:nth-child(3n) {
+            grid-column: span 2;
+            padding-bottom: 40%;
+        }
+
+        .work-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .work-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Critica Section */
+        .critica {
+            background: #0f0f0f;
+        }
+
+        .cards {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .card {
+            display: flex;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-text {
+            flex: 1;
+            padding: 40px;
+        }
+
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .card .author {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            font-style: italic;
+        }
+
+        .card-image {
+            width: 300px;
+            height: 300px;
+            flex-shrink: 0;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .title {
+                font-size: 48px;
+                letter-spacing: 8px;
+            }
+
+            .works-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .work-item:nth-child(3n) {
+                grid-column: 1;
+            }
+
+            .card {
+                flex-direction: column;
+            }
+
+            .card-image {
+                width: 100%;
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="#hero" class="nav-link">RITORNO</a>
+            <a href="#works" class="nav-link">OPERE</a>
+            <a href="#critica" class="nav-link">CRITICA</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="section hero">
+        <div class="container">
+            <div class="museo">Museo a Cielo Aperto di Camo</div>
+            <h1 class="title">RITORNO</h1>
+            <div class="subtitle">
+                PERSONALE DI ADELE LO FEUDO<br>
+                A CURA DI CLAUDIO LORENZONI
+            </div>
+            <button class="video-btn">GUARDA IL VIDEO</button>
+        </div>
+    </section>
+
+    <!-- Works Section -->
+    <section id="works" class="section works">
+        <div class="container">
+            <h2 class="section-title">OPERE</h2>
+            <div class="works-grid">
+                <div class="work-item">
+                    <img src="images/Eugenio.png" alt="Eugenio">
+                </div>
+                <div class="work-item">
+                    <img src="images/Ezio.png" alt="Ezio">
+                </div>
+                <div class="work-item">
+                    <img src="images/Frida.png" alt="Frida">
+                </div>
+                <div class="work-item">
+                    <img src="images/Lorenzoni.png" alt="Lorenzoni">
+                </div>
+                <div class="work-item">
+                    <img src="images/Marina.png" alt="Marina">
+                </div>
+                <div class="work-item">
+                    <img src="images/Milone.png" alt="Milone">
+                </div>
+                <div class="work-item">
+                    <img src="images/Varasano.png" alt="Varasano">
+                </div>
+                <div class="work-item">
+                    <img src="images/Venanti.png" alt="Venanti">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Critica Section -->
+    <section id="critica" class="section critica">
+        <div class="container">
+            <h2 class="section-title">CRITICA</h2>
+            <div class="cards">
+                <div class="card">
+                    <div class="card-text">
+                        <h3>Adele, ritorna.</h3>
+                        <p>Il progetto Ritorno si presenta come un viaggio intimo e circolare, partendo da Parantoro per esplorare l'identità attraverso 49 foglie dipinte.</p>
+                        <div class="author">di Claudio Lorenzoni</div>
+                    </div>
+                    <div class="card-image">
+                        <img src="images/Lorenzoni.png" alt="Claudio Lorenzoni">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-text">
+                        <h3>Le foglie di ALF</h3>
+                        <p>Alla vigilia della prima grande personale di Adele Lo Feudo al Museo a Cielo Aperto di Camo, le foglie diventano simbolo di una vita fragile ma esplosiva.</p>
+                        <div class="author">di Leonardo Varasano</div>
+                    </div>
+                    <div class="card-image">
+                        <img src="images/Varasano.png" alt="Leonardo Varasano">
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-text">
+                        <h3>R I T O R N O</h3>
+                        <p>Nelle sue fotografie vi è sempre la precisa volontà di catturare l'essenza di un messaggio universale. Le 49 foglie nascondono un messaggio di memoria.</p>
+                        <div class="author">di Adele Lo Feudo</div>
+                    </div>
+                    <div class="card-image">
+                        <img src="adele.png" alt="Adele Lo Feudo">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>

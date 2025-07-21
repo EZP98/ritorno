@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>RITORNO - Adele Lo Feudo ALF | Museo a Cielo Aperto di Camo</title>
+    <meta name="description" content="Mostra personale di Adele Lo Feudo - 49 foglie dipinte in acrilico">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%23F64128'/></svg>">
+    <link rel="shortcut icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><circle cx='16' cy='16' r='16' fill='%23F64128'/></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="museo">Museo a Cielo Aperto di Camo</div>
+        <svg class="ritorno-svg" viewBox="0 0 800 120" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <text x="50%" y="75%" text-anchor="middle" dominant-baseline="middle" fill="#F64128" font-family="Palanquin, sans-serif" font-size="96" font-weight="700" letter-spacing="0.4em">
+                RITORNO
+            </text>
+        </svg>
+        <div class="logo">ALF</div>
+        
+        <div class="subtitle-block">
+            <h2>Personale di Adele Lo Feudo</h2>
+            <div class="info">a cura di Claudio Lorenzoni</div>
+        </div>
+        
+        <!-- Navigation -->
+        <div class="navigation">
+            <button class="nav-tab active" onclick="showSection('home')">Home</button>
+            <button class="nav-tab" onclick="showSection('texts')">Testi Critici</button>
+            <button class="nav-tab" onclick="showSection('works')">Opere</button>
+            <button class="nav-tab" onclick="showSection('alf')">ALF</button>
+        </div>
+        
+        <!-- Home Section -->
+        <div id="home" class="content-section active">
+            <div class="video-thumbnail" onclick="openVideoModal()">
+                <img src="images/sky.png" alt="Video thumbnail" class="thumbnail-image">
+                <div class="play-overlay">
+                    <svg class="play-button" width="80" height="80" viewBox="0 0 80 80" fill="none">
+                        <circle cx="40" cy="40" r="39" stroke="white" stroke-width="2" opacity="0.8"/>
+                        <path d="M32 25L55 40L32 55V25Z" fill="white" opacity="0.9"/>
+                    </svg>
+                </div>
+            </div>
+            
+            <div class="dates">3 - 24 agosto 2025</div>
+        </div>
+        
+        <!-- Critical Texts Section -->
+        <div id="texts" class="content-section">
+            <!-- Scroll Navigation -->
+            <div class="scroll-nav" id="scrollNav">
+                <div class="scroll-item" onclick="scrollToText(0)">
+                    <div class="scroll-dot"></div>
+                    <div class="scroll-label">Claudio Lorenzoni</div>
+                </div>
+                <div class="scroll-item" onclick="scrollToText(1)">
+                    <div class="scroll-dot"></div>
+                    <div class="scroll-label">Leonardo Varasano</div>
+                </div>
+                <div class="scroll-item" onclick="scrollToText(2)">
+                    <div class="scroll-dot"></div>
+                    <div class="scroll-label">Adele Lo Feudo</div>
+                </div>
+            </div>
+            
+            <div class="critical-texts">
+                <div class="text-entry">
+                    <div class="text-title">Adele, ritorna.</div>
+                    <div class="text-author">di Claudio Lorenzoni</div>
+                    <div class="text-content">
+                        <p>Ho tra le mani le ultime creazioni di Adele Lo Feudo ed ho appena riletto la e-mail di presentazione che mi ha inviato. Fatemi prendere fiato.</p>
+                        
+                        <p>Si narra che nella vita quando le persone o i luoghi sono veramente significativi, si ripresenta sempre la possibilità di ritrovarli. Perché il vento fa il suo giro e ogni cosa prima o poi ritorna. E ogni volta che questo accade si percepisce una sorta di nostos, di ritorno, che trasmette quel senso di circolarità del viaggio dell'esistenza il cui fine ultimo è arrivare a noi stessi.</p>
+                        
+                        <p>E così è stato. Dopo quasi 10 anni dalla sua prima apparizione in quel di Camo, Adele, con il suo progetto "R I T O R N O", torna a casa, torna in quel luogo, torna tra quelle persone. E lo fa con un nuovo progetto, un nuovo lavoro composto da 49 foglie realizzate in sedici mesi su tela e dipinte in tecnica acrilica.</p>
+                        
+                        <p>Le foglie, mi scrive, "nascondono un messaggio in cui chiunque potrebbe rivedersi. Un messaggio di memoria, amore per la vita, l'altro e l'arte".</p>
+                        
+                        <p>Con questo progetto Adele ha intrapreso un viaggio molto intimo, partendo da un luogo ben definito, Parantoro, terra di suo padre e dei nonni, per poi dirigersi verso tutti gli altri posti che in qualche modo l'hanno trattenuta.</p>
+                        
+                        <p>Ogni foglia è un volto di una persona che in questo lungo viaggio ha "incontrato". Ogni persona un paesaggio personale. Ogni volto è un viaggio. Tutte le foglie viaggi che si intrecciano creando una memoria condivisa impregnata di sogni, sacrifici, lacrime e sorrisi.</p>
+                        
+                        <p>Ora mi immagino l'albero da cui sono state raccolte le foglie. È un albero collettivo, con un tronco multivitale ed una corteccia umana, culturale, artistica.</p>
+                        
+                        <p>Guardando i suoi lavori, e leggendo la sua presentazione, mi vien spontaneo toccare il tema dei "nostoi", ovvero dei "ritorni" in greco antico. Anche perché i "nostoi" non sono solamente un atto fisico narrato nelle vicende eroiche (Ulisse l'esempio supremo), ma anche, e soprattutto, una riflessione sull'identità, la memoria, la riconciliazione con il passato e la ricerca dei luoghi di provenienza.</p>
+                        
+                        <p>Il viaggio che ha intrapreso Adele è sì un ritorno: ma il suo obiettivo non è condurre se stessa ad una meta, ma ricondursi in maniera circolare al suo originario punto di partenza: a casa, ma non una casa fisica. Una casa interiore, la conoscenza di sé.</p>
+                        
+                        <p>La circolarità del percorso connota il viaggio non come fine a se stesso, ma come funzionale a un'acquisizione di esperienza e di conoscenza superiori: un progresso rilevabile e misurabile soltanto dal confronto con il punto di partenza, cioè facendo ritorno al luogo nel quale Adele può finalmente rispecchiarsi e (ri)conoscere la nuova identità.</p>
+                        
+                        <p>Il nostos, in quest'ottica, implica necessariamente anche la nostalgeia, la nostalgia, il "desiderio sofferto di tornare" a casa, per ritrovare le proprie cose, le proprie radici, ma soprattutto se stessi.</p>
+                        
+                        <p>È un continuo muoversi il suo, in avanti per il desiderio di tornare indietro. Indietro verso l'archè, l'origine del tutto.</p>
+                        
+                        <p>Il viaggio di ritorno è anche quello nel tempo della memoria, nei ricordi che rendono vivo e presente il passato. Per Cesare Pavese "le cose si scoprono attraverso i ricordi che se ne hanno. Ricordare una cosa significa vederla, ora soltanto, per la prima volta".</p>
+                        
+                        <p>Lewis Carroll in Alice attraverso lo specchio si spinge ben oltre facendo dire alla Regina che "è una memoria ben misera quella che ricorda solo ciò che è già avvenuto".</p>
+                        
+                        <p>Così come sono dei nostoi quegli episodi delle nostre vite che magari a distanza di anni si rivelano essere il perpetuo ritorno di quanto abbiamo già vissuto: uguali ma diversi. Perché se il copione sembra lo stesso, ora a essere cambiati, a essere diversi, siamo noi.</p>
+                        
+                        <p>Spesso questi ritorni si ripresentano sul nostro cammino come prove da superare, nodi del passato ancora da sciogliere, conflitti rimasti troppo a lungo irrisolti. Se non era buona la prima, la vita ci offre una seconda opportunità. Adele con questo progetto, parafrasando José Saramago, nell'infinita circolarità del suo percorso, ogni meta che ha raggiunto non è che una tappa, l'inizio di un nuovo viaggio. Perché bisogna ricominciare il viaggio. Sempre.</p>
+                    </div>
+                </div>
+                
+                <div class="text-entry">
+                    <div class="text-title">Le foglie di ALF, un'esplosione di vita e di ricordi</div>
+                    <div class="text-author">di Leonardo Varasano</div>
+                    <div class="text-content">
+                        <p>La foglia è al tempo stesso un simbolo di speranza, di vita e di fragilità. Si pensi, ad esempio, ad una foglia nascente, gemma di una nuova, rigogliosa vita, abito elegante per un piccolo fiore o per un albero maestoso e imponente. Si pensi, solo per fare un altro esempio, ad una foglia sferzata da un vento autunnale, strappata da un ramo e alla mercé dell'aria.</p>
+                        
+                        <p>Proprio le foglie - con la loro esplosione di vita (inevitabilmete fragile) - sono state scelte da ALF, Adele Lo Feudo, per imprimere una nuova declinazione di un'arte delicata, profonda e sensibile.</p>
+                        
+                        <p>Le foglie, con la loro danza al suono evocativo del vento, e la luce, che filtra intervallando un verde intenso: questo lo scenario ispiratore che ha mosso ALF ad un'introspezione fruttuosa, per sé e per noi osservatori. Di lì l'idea di affidare alle foglie i volti - e dunque i ricordi - di donne e uomini importanti per Adele: ricordi personalissimi, che restituiscono il tepore buono della famiglia (a partire dall'amato papà) e dell'amicizia (nella cui schiera sono felice di figurare); ricordi che appartengono all'umanità e alla sua Storia (da San Pio a Papa Francesco, solo per citare due casi).</p>
+                        
+                        <p>Tutte insieme, le foglie che immortalano volti e ricordi, restituiscono la vita e la passione per l'arte di Adele. Ne emerge un concerto di gratitudine - per chi l'ha accompagnata nel suo cammino umano ed artistico -, di sacrificio - per la strada percorsa - e di bellezza. Un concerto pittorico, magistralmente realizzato, che ALF imprime sulle foglie, per se e per noi.</p>
+                    </div>
+                </div>
+                
+                <div class="text-entry">
+                    <div class="text-title">R I T O R N O</div>
+                    <div class="text-author">di Adele Lo Feudo</div>
+                    <div class="text-content">
+                        <p>R I T O R N O dopo nove anni, con grande gioia, a Camo, presso il Museo a Cielo Aperto, che già mi accolse nel 2016 con la personale di pittura Presenze/Assenze:Io sono!</p>
+                        
+                        <p>Il merito era ed è ancora di Claudio Lorenzoni, Direttore artistico, di rara umanità e sensibilità, mosso da un vero e disinteressato amore per l'Arte che parla ai cuori.</p>
+                        
+                        <p>La mia ultima fatica artistica, "R I T O R N O", è composta da 49 foglie realizzate in sedici mesi su tela e dipinte in tecnica acrilica.</p>
+                        
+                        <p>Le foglie nascondono un messaggio in cui chiunque potrebbe rivedersi.</p>
+                        
+                        <p>Un messaggio di memoria, amore per la vita, l'altro e l'arte.</p>
+                        
+                        <p>Spero che il visitatore possa far rivivere nella sua memoria un pezzetto di quel suo passato che magari ha dimenticato e che gli sta particolarmente a cuore.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Info Section -->
+        <!-- <div id="info" class="content-section">
+            <div class="info-section">
+                <div class="info-block">
+                    <div class="info-detail"><strong>Museo a Cielo Aperto di Camo (CN)</strong></div>
+                    <div class="info-detail">Vernissage 3 agosto, ore 10:30</div>
+                    <div class="info-detail">In esposizione fino al 24 agosto 2025</div>
+                </div>
+                
+                <div class="info-block">
+                    <div class="contact-item">
+                        <div class="info-detail"><strong>Tel:</strong> 349 1304288</div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="info-detail"><strong>Web:</strong> <a href="https://www.adelelofeudo.it" class="contact-link" target="_blank">www.adelelofeudo.it</a></div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="info-detail"><strong>Instagram:</strong> <a href="https://instagram.com/adelelofeudo" class="contact-link" target="_blank">@adelelofeudo</a></div>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+        
+        <!-- ALF Section -->
+        <div id="alf" class="content-section">
+            <!-- Scroll Navigation for ALF -->
+            <div class="scroll-nav" id="alfScrollNav">
+                <div class="scroll-item" onclick="scrollToAlfSection(0)">
+                    <div class="scroll-dot"></div>
+                    <div class="scroll-label">Biografia</div>
+                </div>
+                <div class="scroll-item" onclick="scrollToAlfSection(1)">
+                    <div class="scroll-dot"></div>
+                    <div class="scroll-label">Personali</div>
+                </div>
+            </div>
+            
+            <div class="alf-content">
+                <div class="alf-section" id="alfBiography">
+                <div class="text-entry biography-entry">
+                    <div class="text-title">Biografia</div>
+                    <div class="text-content biography-content" id="biographyContent">
+                    <p>Sono nata in un giorno di fine settembre, a Cosenza, alla Clinica della Madonnina.</p>
+                    
+                    <p>Fino a 19 anni ho vissuto nella mia città natale.</p>
+                    
+                    <p>Ricordo molto bene quei luoghi:</p>
+                    
+                    <p>Il mio palazzo bianco e azzurro, la mia strada, la Chiesa del Crocifisso, Piazza Riforma, Corso Umberto, Corso Telesio, dove andavo al liceo Classico, Corso Mazzini e Piazza Kennedy, quando uscivo con le amiche.</p>
+                    
+                    <p>Quanti ricordi, bellissimi ricordi, di luoghi, palazzi, piazze, chiese, luci, vetrine, gente, amici, odori, rumori, sapori ma soprattutto di valori, quegli stessi che ho ricevuto dai miei genitori, zii, nonni e che mi hanno accompagnata nel mio percorso di crescita e formazione personale.</p>
+                    
+                    <p>Studiavo e sognavo…</p>
+                    
+                    <p>Non facevo a tempo a finire i compiti che iniziavo a disegnare.</p>
+                    
+                    <p>Su ogni libro o agenda c'erano i miei disegni, quasi sempre donne.</p>
+                    
+                    <p>Mia madre aveva un'enciclopedia al femminile ed io sfogliandola m'innamoravo di quei personaggi così belli, fragili e forti al contempo.</p>
+                    
+                    <p>Mi aveva portato allo studio di una sua amica pittrice e ne ero rimasta folgorata, poi papà mi regalò la prima valigetta di colori a olio; ero al settimo cielo!</p>
+                    
+                    <p>Sognavo di fare la pittrice, ma erano difficili quei sogni, allora poco capiti, poco coadiuvati.</p>
+                    
+                    <p>Ho dovuto lasciare Cosenza, passare per Salerno, laurearmi in giurisprudenza per poi approdare a Perugia dove, dopo l'esperienza nell'interior design ed il diploma da maestro d'arte, quei sogni erano diventati così importanti da spingermi a fare una scelta di vita.</p>
+                    
+                    <p>Non ho potuto tradirli, non ho potuto né voluto ignorarli.</p>
+                    
+                    <p>Erano più forti di me!</p>
+                    
+                    <p>Ho capito finalmente che non avrei fatto del male a nessuno, neppure a me stessa, se li avessi inseguiti.</p>
+                    
+                    <p>Anzi, quale esempio migliore per un figlio, una madre che lotta per realizzare sé stessa, per trasmettere un messaggio che non fosse solo di bellezza estetica ma che parlasse soprattutto di contenuti attraverso un cuore che si apre ad altri cuori ?</p>
+                    
+                    <p>Ho voluto guardarmi indietro e recuperare la mia vita, non senza difficoltà, sacrifici e delusioni.</p>
+                    
+                    <p>Non volevo sprecarla in cose che non mi rappresentassero, perciò ho impiegato tutta me stessa, le mie energie e speranze per quelle donne che a mio avviso meritavano giustizia, attraverso conoscenza e memoria.</p>
+                    
+                    <p>Spero di avere dato, attraverso le mie opere, le mie personali di pittura, gli eventi con finalità benefiche, le donazioni, un piccolo contributo perché i giovani abbiano la forza di lottare per i propri sogni.</p>
+                    
+                    <p>Niente ha più valore!</p>
+                    
+                    <p>Che la vita possa sempre ripagare chi ha fatto sforzi per scelte meritevoli e coraggiose anche se contrastate!</p>
+                    </div>
+                    <div class="expand-indicator" onclick="toggleBiography()">
+                        <span class="expand-icon">↓</span>
+                        <span class="expand-hint">Leggi tutto</span>
+                    </div>
+                </div>
+                </div>
+                
+                <div class="alf-section" id="alfExhibitions">
+                <div class="alf-exhibitions">
+                    <div class="timeline">
+                        <div class="timeline-section">
+                            <div class="timeline-items">
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2024</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Unisono</h5>
+                                        <p class="timeline-location">Perugia, Loggia dei Lanari</p>
+                                        <p class="timeline-description">All'unisono battono quei cuori che hanno uguale sentire, omaggio a donne che hanno donato tutte sé stesse per inseguire i loro sogni, a costo di andare contro corrente e di sopportare grandi sacrifici e sofferenze</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2024</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Rosso</h5>
+                                        <p class="timeline-location">Morro d'Alba, Auditorium di Santa Teleucania</p>
+                                        <p class="timeline-description">Personale dedicata all'universo femminile ed al tema dell'amore; "Rosso" come la vita, il sangue, l'energia vitale, l'amore, la sofferenza, come il filo conduttore di tutta la mostra ed il titolo dell'ultima opera, dedicata ad alcune delle troppe vittime di femminicidio</p>
+                                    </div>
+                                </div>
+                        
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2023</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Negli occhi delle donne</h5>
+                                        <p class="timeline-location">Gualtieri, Casa Museo di Antonio Ligabue</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2023</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">FragileForte</h5>
+                                        <p class="timeline-location">Perugia, Chiesa della Misericordia</p>
+                                        <p class="timeline-description">Personale sulla fragilità e sulla forza presenti nella pittrice, nelle donne dipinte ed in ognuno di noi</p>
+                                    </div>
+                                </div>
+                        
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2022</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Amor</h5>
+                                        <p class="timeline-location">Bergamo, Ex Ateneo</p>
+                                        <p class="timeline-description">Un rosario costituito da sessantuno volti di donna che hanno sacrificato la loro vita per il bene della collettività</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2022</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Amore e Vita</h5>
+                                        <p class="timeline-location">Gualtieri, Casa Museo di Antonio Ligabue</p>
+                                        <p class="timeline-description">Un inno alla vita ed alla maternità umana e animale; un amore indissolubile che va oltre la vita, oltre la morte ed oltre qualsiasi differenza di razza</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2020</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Un cuore solo</h5>
+                                        <p class="timeline-location">Perugia, Sala Cannoniera della Rocca Paolina</p>
+                                        <p class="timeline-description">Mostra ideata in segno di gratitudine verso medici e personale sanitario per il grande impegno profuso durante l'emergenza; un'esperienza traumatica si traduce in un evento artistico; performance e opere narrano di un vissuto che dal personale va all'universale per suscitare emozioni e reazioni</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2019</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Varese 1902</h5>
+                                        <p class="timeline-location">Varese, Battistero di Velate</p>
+                                        <p class="timeline-description">Esposte per la prima volta le miniature gioiello, dipinti indossabili, dedicate a donne che hanno contribuito al progresso sociale femminile ed hanno riavviato la produzione della carta di Varese</p>
+                                    </div>
+                                </div>
+                        
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2018</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Il volto e l'anima – Sguardi di donna</h5>
+                                        <p class="timeline-location">Roma, Micro – Arti Visive</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2018</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Gocce di un unico mare</h5>
+                                        <p class="timeline-location">Montevarchi, Galleria Magiotti</p>
+                                    </div>
+                                </div>
+                        
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2017</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Per giungere fino a te</h5>
+                                        <p class="timeline-location">Perugia, Chiesa della Misericordia</p>
+                                        <p class="timeline-description">Retrospettiva di 85 opere</p>
+                                    </div>
+                                </div>
+                        
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2016</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Presenze/Assenze: IO SONO!</h5>
+                                        <p class="timeline-location">Museo a Cielo Aperto di Camo</p>
+                                        <p class="timeline-description">Mostra dedicata a donne unite dalla passione per l'arte</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2015</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Messi a Nudo</h5>
+                                        <p class="timeline-location">Montevarchi, Galleria Monticini</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2014</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Motus Terrae</h5>
+                                        <p class="timeline-location">Conza della Campania</p>
+                                        <p class="timeline-description">Mostra ambientata nell'area archeologica ed ex abitato di Conza della Campania, distrutto dal sisma del 1980, affronta il tema della rinascita dagli sconvolgimenti interiori e dagli eventi traumatici</p>
+                                    </div>
+                                </div>
+                        
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2014</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Qui non si muore</h5>
+                                        <p class="timeline-location">Galleria di Danielle Villicana, Arezzo</p>
+                                        <p class="timeline-description">Reinterpretazione pittorica di alcune sculture custodite nel Cimitero monumentale di Perugia, inno ai valori della vita</p>
+                                    </div>
+                                </div>
+                        
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2014</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Artista d'avorio</h5>
+                                        <p class="timeline-location">Catania, Thai Princess</p>
+                                    </div>
+                                </div>
+                        
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2013</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Riflessioni</h5>
+                                        <p class="timeline-location">Casa Museo L'Archidoro di Cetona</p>
+                                        <p class="timeline-description">Residenza e spazio espositivo degli artisti Tazio Angelini e Fausta Ottolini</p>
+                                    </div>
+                                </div>
+                        
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2013</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Anima e Corpo</h5>
+                                        <p class="timeline-location">Accademia della Civetta, Perugia</p>
+                                    </div>
+                                </div>
+                        
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2012</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Tante mani per…</h5>
+                                        <p class="timeline-location">Hotel Villa Perusia, Perugia</p>
+                                        <p class="timeline-description">Esposizione di 26 quadri raffiguranti le mani di altrettanti modelli; opere cedute gratuitamente ai modelli che hanno partecipato ad una raccolta fondi a favore dell'omonima associazione benefica operante in Africa</p>
+                                    </div>
+                                </div>
+                        
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2011</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Adele e Adele</h5>
+                                        <p class="timeline-location">Galleria Rosso Cinabro di Roma</p>
+                                    </div>
+                                </div>
+                        
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2011</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Fucsia</h5>
+                                        <p class="timeline-location">Caffè letterario di Cosenza</p>
+                                    </div>
+                                </div>
+                        
+                                <div class="timeline-item">
+                                    <div class="timeline-year">2010</div>
+                                    <div class="timeline-content">
+                                        <h5 class="timeline-title">Ali per volare</h5>
+                                        <p class="timeline-location">Biblioteca comunale Villa Urbani di Perugia</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                
+                <a href="https://www.adelelofeudo.it/" class="alf-link" target="_blank">Visita il sito ufficiale →</a>
+            </div>
+        </div>
+        
+        <!-- Works Section -->
+        <div id="works" class="content-section works-section">
+            <div class="works-grid" id="worksGrid">
+                <!-- Le opere verranno caricate dinamicamente -->
+            </div>
+            <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+                <button class="load-more-btn" onclick="loadMoreWorks()">Carica altre opere</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Biography Modal -->
+    <div class="biography-modal" id="biographyModal" onclick="closeBiographyModal(event)">
+        <div class="biography-modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeBiographyModal()">&times;</span>
+            <h2 class="modal-title">Biografia</h2>
+            <div class="modal-text">
+                <!-- Il contenuto verrà inserito dinamicamente -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Video Modal -->
+    <div class="video-modal" id="videoModal" onclick="closeVideoModal(event)">
+        <div class="video-modal-content" onclick="event.stopPropagation()">
+            <span class="modal-close" onclick="closeVideoModal()">&times;</span>
+            <video id="modalVideo" autoplay>
+                <source src="Ritorno.mp4" type="video/mp4">
+                Il tuo browser non supporta il tag video.
+            </video>
+        </div>
+    </div>
+    
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+        <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+        <div class="lightbox-container">
+            <img src="" alt="" class="lightbox-image" id="lightboxImage">
+            <!-- <div class="lightbox-info" onclick="event.stopPropagation()">
+                <div class="lightbox-counter" id="lightboxCounter"></div>
+                <h3 class="lightbox-title" id="lightboxTitle"></h3>
+                <p class="lightbox-description" id="lightboxDescription"></p>
+            </div> -->
+        </div>
+    </div>
+
+    <!-- Back to top button -->
+    <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+    <!-- Audio di sottofondo -->
+    <audio id="backgroundMusic" loop>
+        <source src="audio.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            const tabs = document.querySelectorAll('.nav-tab');
+            tabs.forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            
+            // Show/hide scroll navigation
+            const scrollNav = document.getElementById('scrollNav');
+            const alfScrollNav = document.getElementById('alfScrollNav');
+            if (sectionId === 'texts') {
+                scrollNav.classList.add('active');
+                alfScrollNav.classList.remove('active');
+                updateScrollDots();
+            } else if (sectionId === 'alf') {
+                alfScrollNav.classList.add('active');
+                scrollNav.classList.remove('active');
+                updateAlfScrollDots();
+                // Nascondi anni duplicati quando si apre la sezione ALF
+                setTimeout(hideduplicateYears, 100);
+            } else {
+                scrollNav.classList.remove('active');
+                alfScrollNav.classList.remove('active');
+            }
+            
+            // Carica le opere quando si clicca sul tab
+            if (sectionId === 'works' && allWorks.length === 0) {
+                loadWorksData();
+            }
+            
+            // Gestisci la musica di sottofondo
+            const audio = document.getElementById('backgroundMusic');
+            console.log('Audio element:', audio);
+            if (sectionId === 'works') {
+                // Non avviare subito, aspetta lo scroll
+                window.musicCanStart = true;
+                console.log('Musica pronta per partire nella sezione opere');
+            } else {
+                // Ferma la musica quando esci dalla sezione opere
+                audio.pause();
+                audio.currentTime = 0; // Resetta la posizione all'inizio
+                window.musicCanStart = false;
+                window.musicStarted = false;
+                console.log('Musica fermata e resettata');
+            }
+        }
+        
+        function scrollToText(index) {
+            const textEntries = document.querySelectorAll('.text-entry');
+            if (textEntries[index]) {
+                const rect = textEntries[index].getBoundingClientRect();
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const targetPosition = rect.top + scrollTop - 30; // 30px offset per vedere l'inizio
+                
+                // Smooth scroll con durata personalizzata
+                const startPosition = scrollTop;
+                const distance = targetPosition - startPosition;
+                const duration = 800; // 800ms per movimento più lento
+                let startTime = null;
+                
+                function animateScroll(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const progress = Math.min(timeElapsed / duration, 1);
+                    
+                    // Easing function per movimento più fluido
+                    const easeInOutCubic = progress < 0.5 
+                        ? 4 * progress * progress * progress 
+                        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+                    
+                    window.scrollTo(0, startPosition + distance * easeInOutCubic);
+                    
+                    if (timeElapsed < duration) {
+                        requestAnimationFrame(animateScroll);
+                    }
+                }
+                
+                requestAnimationFrame(animateScroll);
+            }
+        }
+        
+        function scrollToAlfSection(index) {
+            const alfSections = document.querySelectorAll('.alf-section');
+            if (alfSections[index]) {
+                const rect = alfSections[index].getBoundingClientRect();
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const targetPosition = rect.top + scrollTop - 30;
+                
+                const startPosition = scrollTop;
+                const distance = targetPosition - startPosition;
+                const duration = 800;
+                let startTime = null;
+                
+                function animateScroll(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const timeElapsed = currentTime - startTime;
+                    const progress = Math.min(timeElapsed / duration, 1);
+                    
+                    const easeInOutCubic = progress < 0.5 
+                        ? 4 * progress * progress * progress 
+                        : 1 - Math.pow(-2 * progress + 2, 3) / 2;
+                    
+                    window.scrollTo(0, startPosition + distance * easeInOutCubic);
+                    
+                    if (timeElapsed < duration) {
+                        requestAnimationFrame(animateScroll);
+                    }
+                }
+                
+                requestAnimationFrame(animateScroll);
+            }
+        }
+        
+        function updateScrollDots() {
+            const textEntries = document.querySelectorAll('.text-entry');
+            const scrollDots = document.querySelectorAll('#scrollNav .scroll-dot');
+            
+            if (textEntries.length === 0) return;
+            
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            
+            let activeIndex = 0;
+            textEntries.forEach((entry, index) => {
+                const rect = entry.getBoundingClientRect();
+                const entryTop = rect.top + scrollTop;
+                const entryHeight = rect.height;
+                
+                if (scrollTop >= entryTop - windowHeight / 2 && 
+                    scrollTop < entryTop + entryHeight - windowHeight / 2) {
+                    activeIndex = index;
+                }
+            });
+            
+            scrollDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === activeIndex);
+            });
+        }
+        
+        function updateAlfScrollDots() {
+            const alfSections = document.querySelectorAll('.alf-section');
+            const alfScrollDots = document.querySelectorAll('#alfScrollNav .scroll-dot');
+            
+            if (alfSections.length === 0) return;
+            
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            
+            let activeIndex = 0;
+            alfSections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                const sectionTop = rect.top + scrollTop;
+                const sectionHeight = rect.height;
+                
+                if (scrollTop >= sectionTop - windowHeight / 2 && 
+                    scrollTop < sectionTop + sectionHeight - windowHeight / 2) {
+                    activeIndex = index;
+                }
+            });
+            
+            alfScrollDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === activeIndex);
+            });
+        }
+        
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+        
+        function toggleBackToTop() {
+            const backToTop = document.getElementById('backToTop');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            
+            if (scrollTop > 200) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }
+        
+        // Update scroll dots and back to top on scroll
+        window.addEventListener('scroll', () => {
+            if (document.getElementById('scrollNav').classList.contains('active')) {
+                updateScrollDots();
+            }
+            if (document.getElementById('alfScrollNav').classList.contains('active')) {
+                updateAlfScrollDots();
+            }
+            toggleBackToTop();
+            
+            // Avvia musica quando la sezione opere supera metà schermo
+            if (window.musicCanStart && !window.musicStarted) {
+                const worksSection = document.getElementById('works');
+                if (worksSection && worksSection.classList.contains('active')) {
+                    const worksGrid = document.querySelector('.works-grid');
+                    if (worksGrid) {
+                        const rect = worksGrid.getBoundingClientRect();
+                        const windowHeight = window.innerHeight;
+                        // Avvia quando il top della griglia supera metà schermo
+                        if (rect.top < windowHeight / 2) {
+                            console.log('Tentativo di avviare la musica...');
+                            const audio = document.getElementById('backgroundMusic');
+                            audio.volume = 0.7;
+                            audio.play()
+                                .then(() => console.log('Musica avviata con successo!'))
+                                .catch(e => {
+                                    console.error('Errore audio:', e);
+                                    // Mostra un pulsante per avviare manualmente
+                                    alert('Clicca OK per avviare la musica');
+                                    audio.play();
+                                });
+                            window.musicStarted = true;
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Variabili per gestire le opere
+        let allWorks = [];
+        let currentIndex = 0;
+        const worksPerLoad = 12;
+        
+        // Carica i dati delle opere
+        async function loadWorksData() {
+            try {
+                const response = await fetch('opere.json');
+                const data = await response.json();
+                allWorks = data.opere;
+                loadMoreWorks();
+            } catch (error) {
+                console.error('Errore nel caricamento delle opere:', error);
+                // Fallback con le 8 opere esistenti
+                allWorks = [
+                    { id: 1, filename: "Eugenio.png", titolo: "Eugenio", descrizione: "Il volto di mio padre" },
+                    { id: 2, filename: "Ezio.png", titolo: "Ezio", descrizione: "L'amico di sempre" },
+                    { id: 3, filename: "Frida.png", titolo: "Frida", descrizione: "Forza e fragilità" },
+                    { id: 4, filename: "Lorenzoni.png", titolo: "Claudio Lorenzoni", descrizione: "Il curatore" },
+                    { id: 5, filename: "Marina.png", titolo: "Marina", descrizione: "Sguardo di mare" },
+                    { id: 6, filename: "Milone.png", titolo: "Milone", descrizione: "La saggezza del tempo" },
+                    { id: 7, filename: "Varasano.png", titolo: "Leonardo Varasano", descrizione: "L'amico scrittore" },
+                    { id: 8, filename: "Venanti.png", titolo: "Venanti", descrizione: "Il sorriso che illumina" }
+                ];
+                loadMoreWorks();
+            }
+        }
+        
+        // Carica più opere
+        function loadMoreWorks() {
+            const grid = document.getElementById('worksGrid');
+            const endIndex = Math.min(currentIndex + worksPerLoad, allWorks.length);
+            
+            for (let i = currentIndex; i < endIndex; i++) {
+                const work = allWorks[i];
+                const workItem = document.createElement('div');
+                workItem.className = 'work-item';
+                workItem.onclick = () => openLightbox(work);
+                
+                const img = document.createElement('img');
+                img.src = `images/${work.filename}`;
+                img.alt = work.titolo;
+                img.className = 'work-image';
+                img.loading = 'lazy';
+                
+                // Gestisci errore di caricamento immagine
+                img.onerror = function() {
+                    workItem.style.display = 'none';
+                };
+                
+                // Gestisci caricamento riuscito
+                img.onload = function() {
+                    // Anima l'entrata solo se l'immagine è caricata
+                    setTimeout(() => {
+                        workItem.style.opacity = '1';
+                        workItem.style.transform = 'translateY(0)';
+                    }, 50);
+                };
+                
+                workItem.appendChild(img);
+                grid.appendChild(workItem);
+            }
+            
+            currentIndex = endIndex;
+            
+            // Mostra/nascondi il pulsante "Carica altro"
+            const loadMoreContainer = document.getElementById('loadMoreContainer');
+            if (currentIndex < allWorks.length) {
+                loadMoreContainer.style.display = 'block';
+            } else {
+                loadMoreContainer.style.display = 'none';
+            }
+        }
+        
+        // Lightbox functions
+        function openLightbox(work) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            // const lightboxTitle = document.getElementById('lightboxTitle');
+            // const lightboxDescription = document.getElementById('lightboxDescription');
+            // const lightboxCounter = document.getElementById('lightboxCounter');
+            
+            lightboxImage.src = `images/${work.filename}`;
+            lightboxImage.alt = work.titolo;
+            // lightboxTitle.textContent = work.titolo;
+            // lightboxDescription.textContent = work.descrizione;
+            // lightboxCounter.textContent = work.id.toString().padStart(2, '0'); // Formato 01, 02, etc.
+            
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeLightbox(event) {
+            if (event) event.stopPropagation();
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Close lightbox on ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeLightbox();
+                closeVideoModal();
+            }
+        });
+
+        // Evidenzia il primo elemento di ogni anno
+        function hideduplicateYears() {
+            // Prima rimuovi tutte le classi first-of-year esistenti
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                item.classList.remove('first-of-year');
+            });
+            
+            // Ora itera attraverso TUTTI gli items in ordine
+            const allItems = document.querySelectorAll('.timeline-item');
+            let previousYear = '';
+            
+            allItems.forEach((item, index) => {
+                const yearElement = item.querySelector('.timeline-year');
+                if (yearElement) {
+                    const currentYear = yearElement.textContent.trim();
+                    
+                    if (currentYear !== previousYear) {
+                        // Questo è il primo item di questo anno
+                        item.classList.add('first-of-year');
+                        yearElement.style.removeProperty('display');
+                        yearElement.style.opacity = '1';
+                        previousYear = currentYear;
+                        console.log(`Primo anno: ${currentYear} all'indice ${index}`);
+                    } else {
+                        // Nascondi l'anno per gli elementi successivi dello stesso anno
+                        yearElement.style.display = 'none';
+                        yearElement.style.setProperty('display', 'none', 'important');
+                        console.log(`Nascondo anno duplicato: ${currentYear} all'indice ${index}`);
+                    }
+                }
+            });
+        }
+        
+        // Esegui al caricamento del DOM
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', hideduplicateYears);
+        } else {
+            // DOM già caricato
+            hideduplicateYears();
+        }
+        
+        // Esegui anche quando cambia tab
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('nav-tab')) {
+                setTimeout(hideduplicateYears, 100);
+            }
+        });
+        
+        // Animazione timeline on scroll
+        function setupTimelineAnimation() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('in-view');
+                    }
+                });
+            }, {
+                threshold: 0.3,
+                rootMargin: '-100px 0px'
+            });
+            
+            // Osserva tutti gli elementi della timeline
+            document.querySelectorAll('.timeline-item').forEach(item => {
+                observer.observe(item);
+            });
+        }
+        
+        // Inizializza animazioni quando si apre la sezione ALF
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('nav-tab') && e.target.textContent === 'ALF') {
+                setTimeout(setupTimelineAnimation, 100);
+            }
+        });
+        
+        // Se la sezione ALF è già visibile al caricamento
+        if (document.querySelector('#alf.active')) {
+            setupTimelineAnimation();
+        }
+        
+        // Toggle biografia - apre la modale
+        function toggleBiography() {
+            const modal = document.getElementById('biographyModal');
+            const modalText = modal.querySelector('.modal-text');
+            
+            // Copia tutto il contenuto della biografia nella modale
+            const biographyContent = document.querySelector('.biography-content').innerHTML;
+            modalText.innerHTML = biographyContent;
+            
+            // Apri la modale
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Chiudi la modale biografia
+        function closeBiographyModal(event) {
+            if (event) event.stopPropagation();
+            const modal = document.getElementById('biographyModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+        
+        // Chiudi modale con ESC
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeBiographyModal();
+                closeVideoModal();
+            }
+        });
+        
+        // Apri modale video
+        function openVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('modalVideo');
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            video.currentTime = 0; // Riparti sempre da zero
+            video.play();
+        }
+        
+        // Chiudi modale video
+        function closeVideoModal(event) {
+            if (event) event.stopPropagation();
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('modalVideo');
+            
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+            video.pause();
+            video.currentTime = 0;
+        }
+        
+    </script>
+</body>
+</html><!-- Deployment trigger -->

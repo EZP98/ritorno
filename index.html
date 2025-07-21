@@ -51,12 +51,12 @@
                 PERSONALE DI ADELE LO FEUDO<br>
                 A CURA DI CLAUDIO LORENZONI
             </div>
-            <a href="ritorno.mp4" class="video-btn">
-                <span>GUARDA IL VIDEO</span>
+            <button class="video-btn" onclick="handleVideoClick(event)">
+                <span style="text-decoration: none;">GUARDA IL VIDEO</span>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
                     <path d="M8 5v14l11-7z" fill="currentColor"/>
                 </svg>
-            </a>
+            </button>
         </div>
     </section>
 
@@ -112,6 +112,16 @@
     </section>
 
     <!-- Modals -->
+    <!-- Video Modal (Desktop only) -->
+    <div class="modal" id="videoModal" onclick="closeVideo(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <span class="close" onclick="closeVideo()">&times;</span>
+            <video id="modalVideo" controls>
+                <source src="ritorno.mp4" type="video/mp4">
+                Il tuo browser non supporta il tag video.
+            </video>
+        </div>
+    </div>
 
     <!-- Text Modal -->
     <div class="modal" id="textModal" onclick="closeText(event)">
@@ -230,6 +240,44 @@
             }
         }
 
+        // Check if mobile device
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                   window.innerWidth <= 768;
+        }
+
+        // Handle video click - modal on desktop, direct link on mobile
+        function handleVideoClick(event) {
+            if (isMobileDevice()) {
+                // On mobile, navigate directly to video
+                window.location.href = 'ritorno.mp4';
+            } else {
+                // On desktop, open modal
+                openVideo();
+            }
+        }
+
+        // Video modal functions
+        function openVideo() {
+            const modal = document.getElementById('videoModal');
+            const video = document.getElementById('modalVideo');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            video.currentTime = 0;
+            video.play();
+        }
+
+        function closeVideo(event) {
+            if (!event || event.target.id === 'videoModal' || event.target.className === 'close') {
+                const modal = document.getElementById('videoModal');
+                const video = document.getElementById('modalVideo');
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+                video.pause();
+                video.currentTime = 0;
+            }
+        }
+
         // Lightbox
         function openLightbox(filename, title) {
             const lightbox = document.getElementById('lightbox');
@@ -323,6 +371,7 @@
             if (e.key === 'Escape') {
                 closeLightbox();
                 closeText();
+                closeVideo();
             }
         });
 
