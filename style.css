@@ -231,19 +231,13 @@ body::before {
     animation: fadeInUp 1s ease-out 0.9s forwards;
 }
 
-.subtitle-main {
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: 0.1rem;
-    color: #F64128;
-}
-
+.subtitle-main,
 .subtitle-curator {
-    font-size: 13px;
-    font-weight: 400;
-    letter-spacing: 0.05rem;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.08rem;
     color: #F64128;
-    opacity: 0.9;
+    text-transform: none;
 }
 
 .video-btn {
