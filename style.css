@@ -344,6 +344,7 @@ body::before {
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 1;
 }
 
 .opera-item:hover {
@@ -913,6 +914,8 @@ body::before {
         justify-content: center;
         align-items: center;
         animation: leafSwayMobile 4s ease-in-out infinite;
+        opacity: 1;
+        visibility: visible;
     }
     
     .opera-item img {

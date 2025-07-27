@@ -254,6 +254,8 @@
             const endIndex = Math.min(currentIndex + worksPerLoad, allWorks.length);
             
             console.log('LoadMore - from:', currentIndex, 'to:', endIndex, 'total:', allWorks.length);
+            console.log('InnerContainer exists:', !!innerContainer);
+            console.log('Grid element:', grid);
             
             // Add works only once
             for (let i = 0; i < allWorks.length; i++) {
@@ -271,6 +273,7 @@
                 
                 img.onload = function() {
                     console.log('Image loaded:', work.fronte);
+                    item.style.opacity = '1'; // Ensure visibility
                 };
                 
                 img.onerror = function() {
