@@ -70,8 +70,8 @@
             <div class="museo-title"><a href="https://www.museoacieloapertodicamo.it/" target="_blank" style="color: inherit; text-decoration: none;">Museo a Cielo Aperto di Camo</a><br><a href="https://fondazionecesarepavese.it/" target="_blank" style="color: inherit; text-decoration: none;">Fondazione Cesare Pavese</a></div>
             <img src="ritorno.svg" alt="RITORNO" class="ritorno-logo">
             <div class="subtitle">
-                PERSONALE DI <a href="https://www.adelelofeudo.it/" target="_blank" style="color: inherit; text-decoration: none;">ADELE LO FEUDO</a><br>
-                A CURA DI <a href="https://www.instagram.com/claudiolorenzoni/" target="_blank" style="color: inherit; text-decoration: none;">CLAUDIO LORENZONI</a>
+                <span class="subtitle-main">PERSONALE DI <a href="https://www.adelelofeudo.it/" target="_blank" style="color: inherit; text-decoration: none;">ADELE LO FEUDO</a></span><br>
+                <span class="subtitle-curator">A CURA DI <a href="https://www.instagram.com/claudiolorenzoni/" target="_blank" style="color: inherit; text-decoration: none;">CLAUDIO LORENZONI</a></span>
             </div>
             <button class="video-btn" onclick="handleVideoClick(event)">
                 <span style="text-decoration: none;">GUARDA IL VIDEO</span>
@@ -244,18 +244,16 @@
         function loadMore() {
             const grid = document.getElementById('opereGrid');
             
-            // Clear any existing content first
+            // Clear grid completely on first load
             if (currentIndex === 0) {
                 grid.innerHTML = '';
-            }
-            
-            // Create inner container if it doesn't exist
-            let innerContainer = grid.querySelector('.opere-grid-inner');
-            if (!innerContainer) {
-                innerContainer = document.createElement('div');
+                // Create inner container
+                const innerContainer = document.createElement('div');
                 innerContainer.className = 'opere-grid-inner';
                 grid.appendChild(innerContainer);
             }
+            
+            const innerContainer = grid.querySelector('.opere-grid-inner');
             
             console.log('LoadMore - currentIndex:', currentIndex, 'total works:', allWorks.length);
             console.log('Grid element:', grid);
@@ -680,7 +678,11 @@
         // Auto-scroll opere is now handled by CSS animation
 
         // Initialize
+        let isInitialized = false;
         document.addEventListener('DOMContentLoaded', () => {
+            if (isInitialized) return;
+            isInitialized = true;
+            
             // Scroll to top on page load
             window.scrollTo(0, 0);
             
