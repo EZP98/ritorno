@@ -235,13 +235,15 @@ body::before {
     font-size: 16px;
     font-weight: 600;
     letter-spacing: 0.1rem;
+    color: #F64128;
 }
 
 .subtitle-curator {
     font-size: 13px;
     font-weight: 400;
-    opacity: 0.8;
     letter-spacing: 0.05rem;
+    color: #F64128;
+    opacity: 0.9;
 }
 
 .video-btn {
