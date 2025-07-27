@@ -105,6 +105,7 @@ body::before {
 
 .menu-toggle.active span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
+    background: #131313;
 }
 
 .menu-toggle.active span:nth-child(2) {
@@ -113,6 +114,7 @@ body::before {
 
 .menu-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -5px);
+    background: #131313;
 }
 
 /* Mobile Menu */
@@ -122,7 +124,8 @@ body::before {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(19, 19, 19, 0.98);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -140,7 +143,7 @@ body::before {
 }
 
 .mobile-link {
-    color: #ffffff;
+    color: #131313;
     text-decoration: none;
     font-size: 24px;
     font-weight: 500;
@@ -220,7 +223,7 @@ body::before {
 
 .subtitle {
     font-family: 'Palanquin', sans-serif;
-    font-size: 1.2rem;
+    font-size: 14px;
     line-height: 1.6;
     color: #ffffff;
     margin-bottom: 3rem;
@@ -346,6 +349,26 @@ body::before {
 .opera-item:hover {
     transform: scale(1.1) translateY(-20px);
     z-index: 10;
+}
+
+/* Opera number overlay */
+.opera-numero {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(246, 65, 40, 0.9);
+    color: #ffffff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Palanquin', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    z-index: 2;
 }
 
 .opera-item img {
@@ -503,7 +526,8 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(20px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -518,13 +542,35 @@ body::before {
     visibility: visible;
 }
 
+.modal.active .text-modal-content {
+    animation: modalFadeIn 0.4s ease-out;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
 .modal-content {
-    background: #131313;
+    background: transparent;
     border-radius: 16px;
     position: relative;
     max-width: 90%;
     max-height: 90vh;
     overflow: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.modal-content::-webkit-scrollbar {
+    display: none;
 }
 
 .modal-content video,
@@ -538,52 +584,72 @@ body::before {
 }
 
 .text-modal-content {
-    padding: 3rem;
+    padding: 4rem;
     max-width: 800px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    max-height: 85vh;
+    overflow-y: auto;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.text-modal-content::-webkit-scrollbar {
+    display: none;
 }
 
 .text-modal-content h2 {
     font-family: 'Palanquin', sans-serif;
     font-size: 2rem;
-    color: #F64128;
+    color: #131313;
     margin-bottom: 0.5rem;
+    font-weight: 500;
 }
 
 .text-modal-content #modalAuthor {
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(19, 19, 19, 0.6);
     font-style: italic;
     margin-bottom: 2rem;
 }
 
 .text-modal-content #modalText {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(19, 19, 19, 0.8);
     line-height: 1.8;
+    font-size: 1rem;
 }
 
 .text-modal-content #modalText p {
     margin-bottom: 1.5rem;
 }
 
-.close {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    font-size: 2rem;
-    color: #ffffff;
+.modal .close {
+    position: fixed;
+    top: max(2rem, env(safe-area-inset-top) + 1rem);
+    right: max(2rem, env(safe-area-inset-right) + 1rem);
+    font-size: 1.5rem;
+    color: rgba(19, 19, 19, 0.5);
     cursor: pointer;
-    width: 40px;
-    height: 40px;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    z-index: 10;
+    z-index: 2010;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(19, 19, 19, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .close:hover {
-    color: #F64128;
-    transform: scale(1.1);
+    color: rgba(19, 19, 19, 0.8);
+    background: rgba(19, 19, 19, 0.1);
+    transform: rotate(90deg);
 }
 
 /* Lightbox */
@@ -609,12 +675,73 @@ body::before {
     visibility: visible;
 }
 
-.lightbox img {
+.lightbox-container {
+    position: relative;
+    max-width: 100%;
+    max-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.6s ease;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.lightbox-image {
     max-width: 100%;
     max-height: 90vh;
     object-fit: contain;
     border-radius: 8px;
-    animation: fadeInScale 0.4s ease-out;
+    cursor: default;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+    transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.swipe-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 0.8rem 1.8rem;
+    border-radius: 25px;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.lightbox .close {
+    position: fixed;
+    top: max(2rem, env(safe-area-inset-top) + 1rem);
+    right: max(2rem, env(safe-area-inset-right) + 1rem);
+    font-size: 1.5rem;
+    color: #ffffff;
+    cursor: pointer;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 2010;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7);
+    border: 2px solid #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox .close:hover {
+    color: #ffffff;
+    background: rgba(0, 0, 0, 0.9);
+    transform: rotate(90deg);
+    border-color: #ffffff;
 }
 
 @keyframes fadeInScale {
@@ -675,6 +802,27 @@ body::before {
     transform: translateY(-3px);
 }
 
+/* Footer Credit */
+.footer-credit {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+    font-style: italic;
+    letter-spacing: 0.05em;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.6s ease;
+    z-index: 0;
+}
+
+.footer-credit.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* Responsive */
 /* Stronger leaf animation for mobile */
 @keyframes leafSwayMobile {
@@ -684,6 +832,11 @@ body::before {
 }
 
 @media (max-width: 768px) {
+    /* Disable hover effects on mobile */
+    .card:hover {
+        border-color: rgba(255, 255, 255, 0.1);
+        transform: none;
+    }
     .navbar {
         padding: 1rem;
     }
@@ -777,6 +930,7 @@ body::before {
     .card {
         flex-direction: column;
         height: auto;
+        transition: opacity 0.6s ease-out;
     }
     
     .card-content {
@@ -806,13 +960,21 @@ body::before {
         font-size: 1.25rem;
     }
     
+    .modal {
+        padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+    }
+    
     .modal-content {
         margin: 1rem;
         max-width: calc(100% - 2rem);
+        max-height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 4rem);
     }
     
     .text-modal-content {
         padding: 2rem;
+        max-height: calc(100vh - env(safe-area-inset-top) - env(safe-area-inset-bottom) - 6rem);
+        margin-top: 2rem;
+        margin-bottom: 2rem;
     }
     
     .text-modal-content h2 {
@@ -876,6 +1038,8 @@ body::before {
     
     .text-modal-content {
         padding: 1.5rem;
+        max-height: calc(100vh - 100px);
+        margin: 20px 10px;
     }
     
     .text-modal-content h2 {

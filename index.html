@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="favicon.svg">
     <link rel="apple-touch-icon" href="favicon.svg">
     <meta name="theme-color" content="#F64128">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=9">
 </head>
 <body>
     <!-- Background Audio -->
@@ -45,11 +45,11 @@
     <!-- Hero Section -->
     <section id="hero" class="hero">
         <div class="hero-content">
-            <div class="museo-title">Museo a Cielo Aperto di Camo</div>
+            <div class="museo-title"><a href="https://www.museoacieloapertodicamo.it/" target="_blank" style="color: inherit; text-decoration: none;">Museo a Cielo Aperto di Camo</a><br><a href="https://fondazionecesarepavese.it/" target="_blank" style="color: inherit; text-decoration: none;">Fondazione Cesare Pavese</a></div>
             <img src="ritorno.svg" alt="RITORNO" class="ritorno-logo">
             <div class="subtitle">
-                PERSONALE DI ADELE LO FEUDO<br>
-                A CURA DI CLAUDIO LORENZONI
+                PERSONALE DI <a href="https://www.adelelofeudo.it/" target="_blank" style="color: inherit; text-decoration: none;">ADELE LO FEUDO</a><br>
+                A CURA DI <a href="https://www.instagram.com/claudiolorenzoni/" target="_blank" style="color: inherit; text-decoration: none;">CLAUDIO LORENZONI</a>
             </div>
             <button class="video-btn" onclick="handleVideoClick(event)">
                 <span style="text-decoration: none;">GUARDA IL VIDEO</span>
@@ -74,7 +74,7 @@
             <!-- Card 1 -->
             <div class="card" onclick="openText(0)">
                 <div class="card-content">
-                    <h3 class="card-title">ADELE, RITORNA.</h3>
+                    <h3 class="card-title">ADELE, RITORNA</h3>
                     <p class="card-author">di Claudio Lorenzoni</p>
                     <p class="card-text">Ho tra le mani le ultime creazioni di Adele Lo Feudo ed ho appena riletto la e-mail di presentazione che mi ha inviato. Fatemi prendere fiato.</p>
                 </div>
@@ -114,8 +114,8 @@
 
     <!-- Text Modal -->
     <div class="modal" id="textModal" onclick="closeText(event)">
+        <span class="close" onclick="closeText()">&times;</span>
         <div class="modal-content text-modal-content" onclick="event.stopPropagation()">
-            <span class="close" onclick="closeText()">&times;</span>
             <h2 id="modalTitle"></h2>
             <p id="modalAuthor"></p>
             <div id="modalText"></div>
@@ -123,13 +123,22 @@
     </div>
 
     <!-- Lightbox -->
-    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
         <span class="close" onclick="closeLightbox()">&times;</span>
-        <img id="lightboxImg" src="" alt="">
+        <div class="lightbox-container" id="lightboxContainer">
+            <img id="lightboxImg" src="" alt="" class="lightbox-image">
+            <img id="lightboxImgBack" src="" alt="" class="lightbox-image" style="display: none;">
+            <div class="swipe-indicator">Swipe per girare</div>
+        </div>
     </div>
 
     <!-- Back to Top -->
     <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+    
+    <!-- Footer Credit -->
+    <div class="footer-credit" id="footerCredit">
+        a cura di ezio pappalardo
+    </div>
 
     <script>
         // Force scroll to top on page load
@@ -179,12 +188,12 @@
             const heroHeight = document.querySelector('.hero').offsetHeight;
             
             // Calculate opacity based on scroll position
-            const opacity = Math.max(0, 1 - (scrollPosition / (heroHeight * 0.5)));
+            const opacity = Math.max(0, 1 - (scrollPosition / (heroHeight * 0.7)));
             
             if (heroContent) {
                 heroContent.style.opacity = opacity;
                 // Optional: add slight parallax effect
-                heroContent.style.transform = `translateY(${scrollPosition * 0.3}px)`;
+                heroContent.style.transform = `translateY(${scrollPosition * 0.2}px)`;
             }
         });
 
@@ -193,32 +202,20 @@
         let currentIndex = 0;
         const worksPerLoad = 12;
 
-        // Load opere directly from foglie folder
+        // Load opere from JSON
         async function loadOpere() {
-            // Lista di tutte le foglie nella cartella foglie
-            const foglieList = [
-                "adele.png",
-                "eugenio.png", 
-                "ezio.png",
-                "frida.png",
-                "lorenzoni.png",
-                "marina.png",
-                "milone.png",
-                "varasano.png",
-                "venanti.png"
-            ];
-            
-            // Crea array di opere dalle foglie
-            allWorks = foglieList.map((filename, index) => ({
-                id: index + 1,
-                filename: filename,
-                titolo: filename.replace('.png', '')
-            }));
-            
-            console.log('Loaded works:', allWorks);
-            console.log('Current index before loadMore:', currentIndex);
-            
-            loadMore();
+            try {
+                const response = await fetch('opere-data.json');
+                const data = await response.json();
+                allWorks = data;
+                
+                console.log('Loaded works from JSON:', allWorks);
+                console.log('Current index before loadMore:', currentIndex);
+                
+                loadMore();
+            } catch (error) {
+                console.error('Error loading opere data:', error);
+            }
         }
 
         // Load more opere
@@ -242,19 +239,21 @@
                 const work = allWorks[i];
                 const item = document.createElement('div');
                 item.className = 'opera-item';
-                item.onclick = () => openLightbox(work.filename, work.titolo);
+                item.onclick = () => openLightbox(work.fronte, work.titolo, work.retro, i);
+                
+                // Number overlay removed
                 
                 const img = document.createElement('img');
-                img.src = `images/foglie/${work.filename}`;
+                img.src = work.fronte;
                 img.alt = work.titolo;
                 img.loading = 'lazy';
                 
                 img.onload = function() {
-                    console.log('Image loaded:', work.filename);
+                    console.log('Image loaded:', work.fronte);
                 };
                 
                 img.onerror = function() {
-                    console.error('Failed to load image:', work.filename);
+                    console.error('Failed to load image:', work.fronte);
                     item.remove();
                 };
                 
@@ -306,26 +305,150 @@
             }
         }
 
-        // Lightbox
-        function openLightbox(filename, title) {
+        // Lightbox with navigation between opere
+        let currentLightboxIndex = 0;
+        let isShowingBack = false;
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let isFlipping = false;
+        let isNavigating = false;
+        let hasShownLightboxInstructions = false;
+        
+        function openLightbox(frontFile, title, backFile, index) {
+            if (index !== undefined) {
+                currentLightboxIndex = index;
+            } else {
+                // Find index from frontFile
+                currentLightboxIndex = allWorks.findIndex(work => work.fronte === frontFile);
+            }
+            
             const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightboxImg');
-            img.src = `images/foglie/${filename}`;
-            img.alt = title;
+            const imgFront = document.getElementById('lightboxImg');
+            const imgBack = document.getElementById('lightboxImgBack');
+            const indicator = document.querySelector('.swipe-indicator');
+            
+            const currentWork = allWorks[currentLightboxIndex];
+            isShowingBack = false;
+            
+            imgFront.src = currentWork.fronte;
+            imgFront.alt = currentWork.titolo;
+            imgFront.style.display = 'block';
+            imgFront.style.opacity = '1';
+            
+            imgBack.src = currentWork.retro;
+            imgBack.alt = currentWork.titolo + ' - retro';
+            imgBack.style.display = 'none';
+            imgBack.style.opacity = '0';
+            
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
+            
+            // Show indicator only first time
+            if (!hasShownLightboxInstructions) {
+                indicator.style.display = 'block';
+                indicator.innerHTML = window.innerWidth > 768 
+                    ? 'Scroll ↕ per navigare<br>Scroll ↔ per girare' 
+                    : 'Swipe ↔ per navigare<br>Tap per girare';
+                indicator.style.opacity = '1';
+                setTimeout(() => {
+                    indicator.style.opacity = '0';
+                }, 4000);
+                hasShownLightboxInstructions = true;
+            } else {
+                indicator.style.display = 'none';
+            }
+        }
+        
+        function navigateToOpera(index) {
+            if (isNavigating || index < 0 || index >= allWorks.length) return;
+            
+            isNavigating = true;
+            const imgFront = document.getElementById('lightboxImg');
+            const imgBack = document.getElementById('lightboxImgBack');
+            
+            // Fade out current image
+            if (isShowingBack) {
+                imgBack.style.opacity = '0';
+            } else {
+                imgFront.style.opacity = '0';
+            }
+            
+            setTimeout(() => {
+                currentLightboxIndex = index;
+                const currentWork = allWorks[currentLightboxIndex];
+                isShowingBack = false; // Always reset to front when navigating
+                
+                // Update images
+                imgFront.src = currentWork.fronte;
+                imgFront.alt = currentWork.titolo;
+                imgBack.src = currentWork.retro;
+                imgBack.alt = currentWork.titolo + ' - retro';
+                
+                // Always show front when navigating
+                imgFront.style.display = 'block';
+                imgBack.style.display = 'none';
+                imgFront.style.opacity = '0';
+                imgBack.style.opacity = '0';
+                
+                setTimeout(() => {
+                    imgFront.style.opacity = '1';
+                    isNavigating = false;
+                }, 100);
+            }, 800);
         }
 
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.remove('active');
-            document.body.style.overflow = '';
+        function closeLightbox(event) {
+            if (!event || event.target.id === 'lightbox' || event.target.className === 'close') {
+                document.getElementById('lightbox').classList.remove('active');
+                document.body.style.overflow = '';
+                isShowingBack = false;
+            }
         }
+        
+        function flipLightboxImage() {
+            if (isFlipping) return;
+            
+            isFlipping = true;
+            const imgFront = document.getElementById('lightboxImg');
+            const imgBack = document.getElementById('lightboxImgBack');
+            
+            if (isShowingBack) {
+                // Fade out back
+                imgBack.style.opacity = '0';
+                
+                // Wait for fade out to complete
+                setTimeout(() => {
+                    imgBack.style.display = 'none';
+                    imgFront.style.display = 'block';
+                    // Force reflow
+                    imgFront.offsetHeight;
+                    imgFront.style.opacity = '1';
+                    isShowingBack = false;
+                    isFlipping = false;
+                }, 850);
+            } else {
+                // Fade out front
+                imgFront.style.opacity = '0';
+                
+                // Wait for fade out to complete
+                setTimeout(() => {
+                    imgFront.style.display = 'none';
+                    imgBack.style.display = 'block';
+                    // Force reflow
+                    imgBack.offsetHeight;
+                    imgBack.style.opacity = '1';
+                    isShowingBack = true;
+                    isFlipping = false;
+                }, 850);
+            }
+        }
+        
 
 
         // Text modal
         const texts = [
             {
-                title: "ADELE, RITORNA.",
+                title: "ADELE, RITORNA",
                 author: "di Claudio Lorenzoni",
                 content: `<p>Ho tra le mani le ultime creazioni di Adele Lo Feudo ed ho appena riletto la e-mail di presentazione che mi ha inviato. Fatemi prendere fiato.</p>
                 <p>Si narra che nella vita quando le persone o i luoghi sono veramente significativi, si ripresenta sempre la possibilità di ritrovarli. Perché il vento fa il suo giro e ogni cosa prima o poi ritorna. E ogni volta che questo accade si percepisce una sorta di nostos, di ritorno, che trasmette quel senso di circolarità del viaggio dell'esistenza il cui fine ultimo è arrivare a noi stessi.</p>
@@ -380,13 +503,26 @@
             }
         }
 
-        // Back to top
+        // Back to top and footer credit
         window.addEventListener('scroll', () => {
             const backToTop = document.getElementById('backToTop');
-            if (window.scrollY > 300) {
+            const footerCredit = document.getElementById('footerCredit');
+            const scrollPosition = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            // Back to top button
+            if (scrollPosition > 300) {
                 backToTop.classList.add('visible');
             } else {
                 backToTop.classList.remove('visible');
+            }
+            
+            // Footer credit - appears when near bottom
+            if (scrollPosition + windowHeight >= documentHeight - 100) {
+                footerCredit.classList.add('visible');
+            } else {
+                footerCredit.classList.remove('visible');
             }
         });
 
@@ -394,12 +530,25 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // ESC key close modals
+        // Keyboard controls
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape') {
                 closeLightbox();
                 closeText();
                 closeVideo();
+            }
+            // Keyboard controls for lightbox
+            if (document.getElementById('lightbox').classList.contains('active')) {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    navigateToOpera(currentLightboxIndex - 1);
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    navigateToOpera(currentLightboxIndex + 1);
+                } else if (e.key === ' ' || e.key === 'Enter') {
+                    e.preventDefault();
+                    flipLightboxImage();
+                }
             }
         });
 
@@ -523,6 +672,69 @@
                 // Setup infinite scroll
                 setupInfiniteScroll();
             }, 100);
+            
+            // Setup lightbox swipe events
+            const lightboxContainer = document.getElementById('lightboxContainer');
+            
+            lightboxContainer.addEventListener('touchstart', function(e) {
+                touchStartX = e.changedTouches[0].screenX;
+                touchStartY = e.changedTouches[0].screenY;
+            }, { passive: true });
+            
+            lightboxContainer.addEventListener('touchend', function(e) {
+                const touchEndX = e.changedTouches[0].screenX;
+                const touchEndY = e.changedTouches[0].screenY;
+                const diffX = touchStartX - touchEndX;
+                const diffY = touchStartY - touchEndY;
+                
+                // Check if horizontal swipe is greater than vertical
+                if (Math.abs(diffX) > Math.abs(diffY) && Math.abs(diffX) > 50) {
+                    // Swipe left - next opera
+                    if (diffX > 0) {
+                        navigateToOpera(currentLightboxIndex + 1);
+                    } 
+                    // Swipe right - previous opera
+                    else {
+                        navigateToOpera(currentLightboxIndex - 1);
+                    }
+                }
+            }, { passive: true });
+            
+            // Tap to flip on mobile
+            let tapTimeout;
+            lightboxContainer.addEventListener('touchstart', function(e) {
+                tapTimeout = setTimeout(() => {
+                    tapTimeout = null;
+                }, 300);
+            }, { passive: true });
+            
+            lightboxContainer.addEventListener('touchend', function(e) {
+                if (tapTimeout && Math.abs(touchStartX - e.changedTouches[0].screenX) < 10) {
+                    flipLightboxImage();
+                }
+            }, { passive: true });
+            
+            
+            // Scroll to navigate or flip on desktop
+            lightboxContainer.addEventListener('wheel', function(e) {
+                e.preventDefault();
+                
+                // Check for horizontal scroll (threshold lowered for sensitivity)
+                if (Math.abs(e.deltaX) > 5 && !isFlipping) {
+                    console.log('Horizontal scroll detected - flipping. isFlipping:', isFlipping);
+                    flipLightboxImage();
+                } 
+                // Vertical scroll - navigate between opere
+                else if (Math.abs(e.deltaY) > 5 && !isNavigating) {
+                    if (e.deltaY > 0) {
+                        // Scroll down - next opera
+                        navigateToOpera(currentLightboxIndex + 1);
+                    } else {
+                        // Scroll up - previous opera
+                        navigateToOpera(currentLightboxIndex - 1);
+                    }
+                }
+            }, { passive: false });
         });
         
         // Infinite scroll function

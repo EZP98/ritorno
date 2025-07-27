@@ -1,0 +1,345 @@
+[
+  {
+    "id": 1,
+    "numero": "01",
+    "titolo": "adele",
+    "fronte": "images/foglie/adele.png",
+    "retro": "images/foglie/adele-retro.png"
+  },
+  {
+    "id": 2,
+    "numero": "02",
+    "titolo": "enzo",
+    "fronte": "images/foglie/enzo.png",
+    "retro": "images/foglie/enzo-retro.png"
+  },
+  {
+    "id": 3,
+    "numero": "03",
+    "titolo": "ada",
+    "fronte": "images/foglie/ada.png",
+    "retro": "images/foglie/ada-retro.png"
+  },
+  {
+    "id": 4,
+    "numero": "04",
+    "titolo": "maria",
+    "fronte": "images/foglie/maria.png",
+    "retro": "images/foglie/maria-retro.png"
+  },
+  {
+    "id": 5,
+    "numero": "05",
+    "titolo": "vienna",
+    "fronte": "images/foglie/vienna.png",
+    "retro": "images/foglie/vienna-retro.png"
+  },
+  {
+    "id": 6,
+    "numero": "06",
+    "titolo": "rosa",
+    "fronte": "images/foglie/rosa.png",
+    "retro": "images/foglie/rosa-retro.png"
+  },
+  {
+    "id": 7,
+    "numero": "07",
+    "titolo": "peppino",
+    "fronte": "images/foglie/peppino.png",
+    "retro": "images/foglie/peppino-retro.png"
+  },
+  {
+    "id": 8,
+    "numero": "08",
+    "titolo": "eugenio",
+    "fronte": "images/foglie/eugenio.png",
+    "retro": "images/foglie/eugenio-retro.png"
+  },
+  {
+    "id": 9,
+    "numero": "09",
+    "titolo": "amalia",
+    "fronte": "images/foglie/amalia.png",
+    "retro": "images/foglie/amalia-retro.png"
+  },
+  {
+    "id": 10,
+    "numero": "10",
+    "titolo": "geppina",
+    "fronte": "images/foglie/geppina.png",
+    "retro": "images/foglie/geppina-retro.png"
+  },
+  {
+    "id": 11,
+    "numero": "11",
+    "titolo": "tonino",
+    "fronte": "images/foglie/tonino.png",
+    "retro": "images/foglie/tonino-retro.png"
+  },
+  {
+    "id": 12,
+    "numero": "12",
+    "titolo": "lina",
+    "fronte": "images/foglie/lina.png",
+    "retro": "images/foglie/lina-retro.png"
+  },
+  {
+    "id": 13,
+    "numero": "13",
+    "titolo": "silvio",
+    "fronte": "images/foglie/silvio.png",
+    "retro": "images/foglie/silvio-retro.png"
+  },
+  {
+    "id": 14,
+    "numero": "14",
+    "titolo": "ezio",
+    "fronte": "images/foglie/ezio.png",
+    "retro": "images/foglie/ezio-retro.png"
+  },
+  {
+    "id": 15,
+    "numero": "15",
+    "titolo": "elvio",
+    "fronte": "images/foglie/elvio.png",
+    "retro": "images/foglie/elvio-retro.png"
+  },
+  {
+    "id": 16,
+    "numero": "16",
+    "titolo": "giuseppina",
+    "fronte": "images/foglie/giuseppina.png",
+    "retro": "images/foglie/giuseppina-retro.png"
+  },
+  {
+    "id": 17,
+    "numero": "17",
+    "titolo": "fiorella",
+    "fronte": "images/foglie/fiorella.png",
+    "retro": "images/foglie/fiorella-retro.png"
+  },
+  {
+    "id": 18,
+    "numero": "18",
+    "titolo": "pio",
+    "fronte": "images/foglie/pio.png",
+    "retro": "images/foglie/pio-retro.png"
+  },
+  {
+    "id": 19,
+    "numero": "19",
+    "titolo": "pina",
+    "fronte": "images/foglie/pina.png",
+    "retro": "images/foglie/pina-retro.png"
+  },
+  {
+    "id": 20,
+    "numero": "20",
+    "titolo": "cillo",
+    "fronte": "images/foglie/cillo.png",
+    "retro": "images/foglie/cillo-retro.png"
+  },
+  {
+    "id": 21,
+    "numero": "21",
+    "titolo": "fernando",
+    "fronte": "images/foglie/fernando.png",
+    "retro": "images/foglie/fernando-retro.png"
+  },
+  {
+    "id": 22,
+    "numero": "22",
+    "titolo": "fernanda",
+    "fronte": "images/foglie/fernanda.png",
+    "retro": "images/foglie/fernanda-retro.png"
+  },
+  {
+    "id": 23,
+    "numero": "23",
+    "titolo": "milone",
+    "fronte": "images/foglie/milone.png",
+    "retro": "images/foglie/milone-retro.png"
+  },
+  {
+    "id": 24,
+    "numero": "24",
+    "titolo": "venanti",
+    "fronte": "images/foglie/venanti.png",
+    "retro": "images/foglie/venanti-retro.png"
+  },
+  {
+    "id": 25,
+    "numero": "25",
+    "titolo": "bertoni",
+    "fronte": "images/foglie/bertoni.png",
+    "retro": "images/foglie/bertoni-retro.png"
+  },
+  {
+    "id": 26,
+    "numero": "26",
+    "titolo": "fausta",
+    "fronte": "images/foglie/fausta.png",
+    "retro": "images/foglie/fausta-retro.png"
+  },
+  {
+    "id": 27,
+    "numero": "27",
+    "titolo": "tazio",
+    "fronte": "images/foglie/tazio.png",
+    "retro": "images/foglie/tazio-retro.png"
+  },
+  {
+    "id": 28,
+    "numero": "28",
+    "titolo": "francesca",
+    "fronte": "images/foglie/francesca.png",
+    "retro": "images/foglie/francesca-retro.png"
+  },
+  {
+    "id": 29,
+    "numero": "29",
+    "titolo": "gianni",
+    "fronte": "images/foglie/gianni.png",
+    "retro": "images/foglie/gianni-retro.png"
+  },
+  {
+    "id": 30,
+    "numero": "30",
+    "titolo": "cecilia",
+    "fronte": "images/foglie/cecilia.png",
+    "retro": "images/foglie/cecilia-retro.png"
+  },
+  {
+    "id": 31,
+    "numero": "31",
+    "titolo": "antonio",
+    "fronte": "images/foglie/antonio.png",
+    "retro": "images/foglie/antonio-retro.png"
+  },
+  {
+    "id": 32,
+    "numero": "32",
+    "titolo": "angelo",
+    "fronte": "images/foglie/angelo.png",
+    "retro": "images/foglie/angelo-retro.png"
+  },
+  {
+    "id": 33,
+    "numero": "33",
+    "titolo": "giuseppe",
+    "fronte": "images/foglie/giuseppe.png",
+    "retro": "images/foglie/giuseppe-retro.png"
+  },
+  {
+    "id": 34,
+    "numero": "34",
+    "titolo": "gilda",
+    "fronte": "images/foglie/gilda.png",
+    "retro": "images/foglie/gilda-retro.png"
+  },
+  {
+    "id": 35,
+    "numero": "35",
+    "titolo": "tonina",
+    "fronte": "images/foglie/tonina.png",
+    "retro": "images/foglie/tonina-retro.png"
+  },
+  {
+    "id": 36,
+    "numero": "36",
+    "titolo": "ugo",
+    "fronte": "images/foglie/ugo.png",
+    "retro": "images/foglie/ugo-retro.png"
+  },
+  {
+    "id": 37,
+    "numero": "37",
+    "titolo": "roberta",
+    "fronte": "images/foglie/roberta.png",
+    "retro": "images/foglie/roberta-retro.png"
+  },
+  {
+    "id": 38,
+    "numero": "38",
+    "titolo": "vassallo",
+    "fronte": "images/foglie/vassallo.png",
+    "retro": "images/foglie/vassallo-retro.png"
+  },
+  {
+    "id": 39,
+    "numero": "39",
+    "titolo": "frida",
+    "fronte": "images/foglie/frida.png",
+    "retro": "images/foglie/frida-retro.png"
+  },
+  {
+    "id": 40,
+    "numero": "40",
+    "titolo": "marina",
+    "fronte": "images/foglie/marina.png",
+    "retro": "images/foglie/marina-retro.png"
+  },
+  {
+    "id": 41,
+    "numero": "41",
+    "titolo": "nik",
+    "fronte": "images/foglie/nik.png",
+    "retro": "images/foglie/nik-retro.png"
+  },
+  {
+    "id": 42,
+    "numero": "42",
+    "titolo": "varasano",
+    "fronte": "images/foglie/varasano.png",
+    "retro": "images/foglie/varasano-retro.png"
+  },
+  {
+    "id": 43,
+    "numero": "43",
+    "titolo": "maurizio",
+    "fronte": "images/foglie/maurizio.png",
+    "retro": "images/foglie/maurizio-retro.png"
+  },
+  {
+    "id": 44,
+    "numero": "44",
+    "titolo": "borsellino",
+    "fronte": "images/foglie/borsellino.png",
+    "retro": "images/foglie/borsellino-retro.png"
+  },
+  {
+    "id": 45,
+    "numero": "45",
+    "titolo": "emily",
+    "fronte": "images/foglie/emily.png",
+    "retro": "images/foglie/emily-retro.png"
+  },
+  {
+    "id": 46,
+    "numero": "46",
+    "titolo": "francesco",
+    "fronte": "images/foglie/francesco.png",
+    "retro": "images/foglie/francesco-retro.png"
+  },
+  {
+    "id": 47,
+    "numero": "47",
+    "titolo": "ettore",
+    "fronte": "images/foglie/ettore.png",
+    "retro": "images/foglie/ettore-retro.png"
+  },
+  {
+    "id": 48,
+    "numero": "48",
+    "titolo": "lorenzoni",
+    "fronte": "images/foglie/lorenzoni.png",
+    "retro": "images/foglie/lorenzoni-retro.png"
+  },
+  {
+    "id": 49,
+    "numero": "49",
+    "titolo": "eziopio",
+    "fronte": "images/foglie/eziopio.png",
+    "retro": "images/foglie/eziopio-retro.png"
+  }
+]
