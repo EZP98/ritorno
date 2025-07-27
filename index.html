@@ -243,6 +243,11 @@
         function loadMore() {
             const grid = document.getElementById('opereGrid');
             
+            // Clear any existing content first
+            if (currentIndex === 0) {
+                grid.innerHTML = '';
+            }
+            
             // Create inner container if it doesn't exist
             let innerContainer = grid.querySelector('.opere-grid-inner');
             if (!innerContainer) {
@@ -251,41 +256,38 @@
                 grid.appendChild(innerContainer);
             }
             
-            const endIndex = Math.min(currentIndex + worksPerLoad, allWorks.length);
-            
-            console.log('LoadMore - from:', currentIndex, 'to:', endIndex, 'total:', allWorks.length);
-            console.log('InnerContainer exists:', !!innerContainer);
+            console.log('LoadMore - currentIndex:', currentIndex, 'total works:', allWorks.length);
             console.log('Grid element:', grid);
+            console.log('InnerContainer:', innerContainer);
             
-            // Add works only once
-            for (let i = 0; i < allWorks.length; i++) {
-                const work = allWorks[i];
-                const item = document.createElement('div');
-                item.className = 'opera-item';
-                item.onclick = () => openLightbox(work.fronte, work.titolo, work.retro, i);
+            // Add all works at once (since we want to show all 49)
+            if (currentIndex === 0 && allWorks.length > 0) {
+                for (let i = 0; i < allWorks.length; i++) {
+                    const work = allWorks[i];
+                    const item = document.createElement('div');
+                    item.className = 'opera-item';
+                    item.onclick = () => openLightbox(work.fronte, work.titolo, work.retro, i);
+                    
+                    const img = document.createElement('img');
+                    img.src = work.fronte;
+                    img.alt = work.titolo;
+                    img.loading = 'lazy';
+                    
+                    img.onload = function() {
+                        console.log('Image loaded:', work.fronte);
+                    };
+                    
+                    img.onerror = function() {
+                        console.error('Failed to load image:', work.fronte);
+                        console.error('Full path attempted:', img.src);
+                    };
+                    
+                    item.appendChild(img);
+                    innerContainer.appendChild(item);
+                }
                 
-                // Number overlay removed
-                
-                const img = document.createElement('img');
-                img.src = work.fronte;
-                img.alt = work.titolo;
-                img.loading = 'lazy';
-                
-                img.onload = function() {
-                    console.log('Image loaded:', work.fronte);
-                    item.style.opacity = '1'; // Ensure visibility
-                };
-                
-                img.onerror = function() {
-                    console.error('Failed to load image:', work.fronte);
-                    item.remove();
-                };
-                
-                item.appendChild(img);
-                innerContainer.appendChild(item);
+                currentIndex = allWorks.length;
             }
-            
-            currentIndex = allWorks.length;
             
             // Hide load more button
             document.getElementById('loadMore').style.display = 'none';
